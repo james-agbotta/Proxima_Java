@@ -1,6 +1,9 @@
 package model;
 
 public class Driver implements Alertable, Traversable<Driver> {
+	private int driverID;
+	private String driverName;
+	private int carID;
 
 	@Override
 	public Driver next() {
