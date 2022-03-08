@@ -1,2 +1,2 @@
 # Proxima_Java
- UWS Algorithms and collections Coursework
+ Coursework for Algorithms and collections
