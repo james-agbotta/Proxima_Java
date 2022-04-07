@@ -1,6 +1,6 @@
-package model;
+package com.proxima.model;
 
-public class Driver implements Alertable, Traversable<Driver> {
+public class Driver  implements Comparable, Alertable, Traversable<Driver> {
 	private int driverID;
 	private String driverName;
 	private int carID;
@@ -75,6 +75,12 @@ public class Driver implements Alertable, Traversable<Driver> {
 	public Alert sendReply(int acknoledgement, int priority, String message) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

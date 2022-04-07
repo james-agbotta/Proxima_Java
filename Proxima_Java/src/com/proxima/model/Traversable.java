@@ -1,6 +1,7 @@
-package model;
+package com.proxima.model;
 
 public interface Traversable<T> {
+	//Provided that T is Comparable, this should work
 	public T next();
 	public T previous();
 	public boolean hasNext();

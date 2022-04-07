@@ -1,4 +1,4 @@
-package model;
+package com.proxima.model;
 
 public class Hire implements Traversable<Hire> {
 

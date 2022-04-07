@@ -1,6 +1,6 @@
-package model;
+package com.proxima.model;
 
-public class Street implements Traversable<Street> {
+public class Street implements Comparable, Traversable<Street> {
 
 	@Override
 	public Street next() {
@@ -54,6 +54,12 @@ public class Street implements Traversable<Street> {
 	public void clear() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
