@@ -11,6 +11,7 @@ public interface Traversable<T> {
 	public void insert(T t);
 	public boolean contains(T t);
 	public void clear();
+
 	
 
 }
