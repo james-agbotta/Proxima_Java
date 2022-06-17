@@ -7,15 +7,23 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 	private Address bookingAddress;
 	private Customer nextCustomer;
 	private Customer previousCustomer;
-	private boolean isEmpty;
+	private boolean empty;
 	
 	
+	public boolean isEmpty() {
+		return empty;
+	}
+
+	public void setEmpty(boolean empty) {
+		this.empty = empty;
+	}
+
 	public Customer() {
 		bookingID ="";
 		bookingName = "";
 		nextCustomer = new Customer();
 		previousCustomer = new Customer();
-		isEmpty= true;
+		empty= true;
 		
 	}
 	
@@ -23,7 +31,7 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 		this.bookingID = t.bookingID;
 		this.bookingName = t.bookingName;
 		this.bookingAddress = t.bookingAddress;
-		isEmpty = false;
+		empty = false;
 		
 	}
 	
@@ -50,13 +58,13 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 	@Override
 	public boolean hasNext() {
 		// TODO re-write Customer.hasNext() to verify properly
-		return nextCustomer.isEmpty != true;
+		return nextCustomer.isEmpty() != true;
 	}
 
 	@Override
 	public boolean hasPrevious() {
 		// TODO re-write Customer.hasPrevious() to verify properly
-		return previousCustomer.isEmpty != true;
+		return previousCustomer.isEmpty() != true;
 	}
 
 	@Override
@@ -80,12 +88,25 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 
 	@Override
 	public boolean contains(Customer t) {
-		// TODO Finish Contains. Test if This node isEmpty(), then if !isEmpty() test this == t, else test if Next == t.
-		return false;
+		// TODO Finish Contains. Test if if the previous Node !isEmpty, previous.contains(t), else if This node isEmpty(), then if !isEmpty() test this == t, else test if Next == t.
+		if(this.hasPrevious()) 
+		{
+			return previousCustomer.contains(t);
+		}
+		else if(!this.isEmpty()) 
+		{
+			if(this.equals(t)) return true;
+		}
+		else if(this.hasNext()) 
+		{
+			return this.nextCustomer.contains(t);
+		}
+
+		return false;//If none of the above returns a value, return false. 
 	}
 
 	@Override
-	public void clear() {
+	public void clear() {//clearing will disconnect the Customer node from the graph
 		new Customer();
 		
 	}
