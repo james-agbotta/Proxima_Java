@@ -66,17 +66,32 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 		// TODO re-write Customer.hasPrevious() to verify properly
 		return previousCustomer.isEmpty() != true;
 	}
+	
+	
 
 	@Override
 	public void add(Customer t) {
 		// TODO allow for validation in add();
-		// TODO check  if this isEmpty(): is !isEmpty() this = t, else this.add(Next);
-
+		// TODO check  if this isEmpty(): if isEmpty() this = t, else if t < this then this.next.add() else this.previous.add();
+		if(this.empty) //If empty, assume the graph is empty
+		{
+		new	Customer(t);
+		}
+		else if(t.greaterThan(this)) 
+		{
+			this.previousCustomer.add(t);
+		}
+		else {
+			this.nextCustomer.add(t);
+		}
 	}
 
 	@Override
 	public Customer remove(Customer t) {
 		// TODO to remove, connect Previous.next = next.previous
+		
+		//previousCustomer.add
+		
 		return null;
 	}
 
@@ -134,6 +149,18 @@ public class Customer implements Comparable<Customer>, Traversable<Customer>{
 	public int compareTo(Customer o) {
 
 			return bookingID.compareTo(o.getBookingID());
+		
+	}
+
+	@Override
+	public void addNext(Customer t) {
+		// TODO Auto-generated method stub remove if unused
+		
+	}
+
+	@Override
+	public void addPrevious(Customer t) {
+		// TODO Auto-generated method stub remove if unused
 		
 	}
 

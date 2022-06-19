@@ -62,4 +62,16 @@ public class Street implements Comparable, Traversable<Street> {
 		return 0;
 	}
 
+	@Override
+	public void addNext(Street t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPrevious(Street t) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

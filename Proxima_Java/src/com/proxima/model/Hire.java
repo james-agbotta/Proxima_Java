@@ -1,6 +1,14 @@
 package com.proxima.model;
 
 public class Hire implements Traversable<Hire> {
+	
+	private Driver assignedDriver;
+	private Customer hiringCustomer;
+	private Hire nextHire;
+	private Hire previousHire;
+	private enum status {Booked, Ongoing, };
+	
+	
 
 	@Override
 	public Hire next() {
@@ -52,6 +60,18 @@ public class Hire implements Traversable<Hire> {
 
 	@Override
 	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addNext(Hire t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPrevious(Hire t) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -7,6 +7,8 @@ public interface Traversable<T> {
 	public boolean hasNext();
 	public boolean hasPrevious();
 	public void add(T t);
+	public void addNext(T t);
+	public void addPrevious(T t);
 	public T remove(T t);
 	public void insert(T t);
 	public boolean contains(T t);
