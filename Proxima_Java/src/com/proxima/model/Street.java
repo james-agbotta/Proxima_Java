@@ -13,8 +13,8 @@ public class Street {
 	{
 		streetName = name;
 		postCode ="";
-		connectedStreets = new Street[4];
-		currentActors = new Actor[6];
+		setConnectedStreets(new Street[4]);
+		setCurrentActors(new Actor[6]);
 	}
 	
 	public void setStreetName(String name) 
@@ -34,5 +34,30 @@ public class Street {
 	public String getPostCode() {
 		return postCode;
 	}
+
+	public Street[] getConnectedStreets() {
+		return connectedStreets;
+	}
+
+	public void setConnectedStreets(Street[] connectedStreets) {
+		this.connectedStreets = connectedStreets;
+	}
+
+	public Actor[] getCurrentActors() {
+		return currentActors;
+	}
+
+	public void setCurrentActors(Actor[] currentActors) {
+		this.currentActors = currentActors;
+	}
+
+	public int getStreetLength() {
+		return streetLength;
+	}
+
+	public void setStreetLength(int streetLength) {
+		this.streetLength = streetLength;
+	}
 	
+
 }
