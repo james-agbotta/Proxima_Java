@@ -1,20 +1,31 @@
 package com.proxima.model;
+import java.util.ArrayList;
 
-public class Street {
+public class Street implements Comparable<Street>{
+	/*
+	 * Things to test. 
+	 * 1. Have a means to log the position of junction in a list
+	 * 2. means to rank junctions. 
+	 * 3. pre-emptive representation of graph system (either vertices or matrix. )
+	 * 
+	 */
 
 	private String streetName;
 	private String postCode;
-	private Street[] connectedStreets;
-	private Actor[] currentActors;
+	
 	private int streetLength;
+	private Street[] junctions;
+	private ArrayList<String> actorsByID;
+	
 	
 	/*procedures*/
-	public Street(String name) 
+	public Street(String name, int junction) 
 	{
 		streetName = name;
 		postCode ="";
-		setConnectedStreets(new Street[4]);
-		setCurrentActors(new Actor[6]);
+		junctions = new Street[junction];
+		actorsByID= new ArrayList<String>();
+
 	}
 	
 	public void setStreetName(String name) 
@@ -34,22 +45,8 @@ public class Street {
 	public String getPostCode() {
 		return postCode;
 	}
+	
 
-	public Street[] getConnectedStreets() {
-		return connectedStreets;
-	}
-
-	public void setConnectedStreets(Street[] connectedStreets) {
-		this.connectedStreets = connectedStreets;
-	}
-
-	public Actor[] getCurrentActors() {
-		return currentActors;
-	}
-
-	public void setCurrentActors(Actor[] currentActors) {
-		this.currentActors = currentActors;
-	}
 
 	public int getStreetLength() {
 		return streetLength;
@@ -58,6 +55,44 @@ public class Street {
 	public void setStreetLength(int streetLength) {
 		this.streetLength = streetLength;
 	}
+	
+	public void addJunction() 
+	{//TODO complete this by adding error checking and  balancing.
+		
+		
+		int i =0;
+		boolean complete = false;
+		
+		 
+		do{
+			//if()
+			i++;
+		}while (complete || i < junctions.length);
+	}
+	
+	
+	public boolean isValid() {
+		//TODO complete
+		return false;
+	}
+	
+
+
+	@Override
+	public String toString() 
+	{
+		return  streetName + ", "+ postCode; 
+	}
+
+	@Override
+	public int compareTo(Street o) {
+		// First test if the street-names are the same, then the post-codes
+		int temp =  this.streetName.compareTo(o.getStreetName());
+		if (temp ==0) temp += this.postCode.compareTo(o.getPostCode());
+		return temp;
+	}
+	
+
 	
 
 }

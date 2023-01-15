@@ -1,10 +1,16 @@
 package com.proxima.model;
 
-public class Driver {
+public class Driver extends Actor{
+	
+
 	private Driver nextDriver;
 	private Driver previousDriver;
+	private int rating;
 	
-	
+	public Driver(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Driver getNextDriver() 
 	{
@@ -13,6 +19,7 @@ public class Driver {
 	
 	public void setNextDriver(Driver driver) 
 	{
+		
 		nextDriver = driver;
 	}
 	
@@ -25,6 +32,15 @@ public class Driver {
 	{
 		previousDriver = driver;
 	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
 	
 	
 

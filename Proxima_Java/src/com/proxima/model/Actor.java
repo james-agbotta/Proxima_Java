@@ -1,6 +1,6 @@
 package com.proxima.model;
 
-public class Actor {
+public class Actor implements Comparable<Actor>{
 
 	private String id;
 	private String name;
@@ -12,7 +12,7 @@ public class Actor {
 	{
 		this.id =id;
 		name ="";
-		currentStreet = new Street("null");
+		currentStreet = new Street("null",0);
 		currentState = State.DISENGAGED;
 	}
 	
@@ -52,6 +52,14 @@ public class Actor {
 	public State getState() 
 	{
 		return currentState;
+	}
+
+	@Override
+	public int compareTo(Actor o) {
+		// First test if the id's are the same, then check the names.
+				int temp =  this.id.compareTo(o.getID());
+				if (temp ==0) temp += this.name.compareTo(o.getName());
+				return temp;
 	}
 
 	
