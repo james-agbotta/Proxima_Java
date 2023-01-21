@@ -55,6 +55,14 @@ public class Street implements Comparable<Street>{
 	public void setStreetLength(int streetLength) {
 		this.streetLength = streetLength;
 	}
+
+	public String[] getActorsByID()
+	{
+		String[] temp = new String[actorsByID.size()];
+		temp = actorsByID.toArray(temp);
+
+		return temp;
+	}
 	
 	public void addJunction() 
 	{//TODO complete this by adding error checking and  balancing.

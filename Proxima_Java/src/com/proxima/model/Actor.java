@@ -62,6 +62,17 @@ public class Actor implements Comparable<Actor>{
 				return temp;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "Actor: "+id+ "named: "+name;
+	}
+
+	public String getIdentity()
+	{
+		return "Actor";
+	}
+
 	
 	
 }
