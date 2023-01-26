@@ -9,7 +9,10 @@ public class Driver extends Actor{
 	
 	public Driver(String id) {
 		super(id);
-		// TODO Auto-generated constructor stub
+		rating= 3;
+		nextDriver = null;
+		previousDriver = null;
+
 	}
 	
 	public Driver getNextDriver() 
