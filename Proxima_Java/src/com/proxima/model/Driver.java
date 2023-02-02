@@ -45,6 +45,16 @@ public class Driver extends Actor{
 	}
 
 	
-	
+	@Override
+	public String toString()
+	{
+		return "Driver id: "+this.getID()+". Currently located: "+this.getCurrentStreet().getStreetName();
+	}
 
+
+	@Override
+	public String getIdentity()
+	{
+		return "Driver";
+	}
 }

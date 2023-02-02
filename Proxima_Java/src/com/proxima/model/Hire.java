@@ -37,5 +37,11 @@ public class Hire extends Actor
 	}
 	
 
+	@Override
+	public String getIdentity()
+	{
+		return "Driver";
+	}
+
 	
 }
