@@ -44,4 +44,10 @@ public class StreetOrganiser implements Organisable<Street> {
 		return null;
 	}
 
+	@Override
+	public Street root() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
