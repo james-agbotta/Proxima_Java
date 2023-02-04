@@ -1,6 +1,7 @@
 package com.proxima.model;
 
 public class StreetOrganiser implements Organisable<Street> {
+	/* THis is a graph data type */
 
 	@Override
 	public void add(Street t) {
@@ -9,9 +10,9 @@ public class StreetOrganiser implements Organisable<Street> {
 	}
 
 	@Override
-	public int connect(Street a, Street b) {
+	public void connect(Street a, Street b) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 
 	@Override
@@ -45,9 +46,34 @@ public class StreetOrganiser implements Organisable<Street> {
 	}
 
 	@Override
-	public Street root() {
+	public void insert(Street t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isEqualTo(Street t) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Street getStart() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public Street[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Street[] getPath(Street t, Street r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
