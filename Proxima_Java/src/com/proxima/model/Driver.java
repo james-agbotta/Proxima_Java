@@ -1,19 +1,20 @@
 package com.proxima.model;
 
 public class Driver extends Actor{
+	//This is a stack of drivers
 	
 
 	private Driver nextDriver;
-	private Driver previousDriver;
-	private int rating;
+	private int rating; // Rating from 1 - 5
 	
 	public Driver(String id) {
 		super(id);
-		rating= 3;
+		rating= 3;// This is the average 
 		nextDriver = null;
-		previousDriver = null;
-
+		
 	}
+
+
 	
 	public Driver getNextDriver() 
 	{
@@ -26,15 +27,7 @@ public class Driver extends Actor{
 		nextDriver = driver;
 	}
 	
-	public Driver getPreviousDriver() 
-	{
-		return previousDriver;
-	}
-	
-	public void setPreviousDriver(Driver driver) 
-	{
-		previousDriver = driver;
-	}
+
 
 	public int getRating() {
 		return rating;
@@ -57,4 +50,13 @@ public class Driver extends Actor{
 	{
 		return "Driver";
 	}
+
+
+	public int compareTo(Driver d)
+	{ //TODO complete Driver.compareTo(Driver d)
+
+		return 0;
+	}
+
+
 }

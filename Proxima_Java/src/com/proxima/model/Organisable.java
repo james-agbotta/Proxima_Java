@@ -10,7 +10,7 @@ public interface Organisable<T> {
 	public T remove(T t);
 	public T getStart();
 	public int indexOf(T t);
-
+	public int size();
 	public T[] toArray();
  	public T[] getPath(T t);
 	public T[] getPath(T t, T r);

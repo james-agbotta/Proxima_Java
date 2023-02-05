@@ -4,12 +4,34 @@ public class DriverOrganiser implements Organisable<Driver> {
 	/*This is a linked list based stack datatype */
 
 	private Driver top;
+	private int count;// count of drivers in stack.
+	private int activeCount;
+
+
+	public DriverOrganiser(){
+		top = new Driver("NaN");
+		count = 0;
+	}
 	
 
 	@Override
 	public void add(Driver t) {
-		// TODO Auto-generated method stub
+		// TODO Complete add(Driver t);
+		if(this.isEmpty()){
+			top = t;
+			count++;
+		} // require a robust method for ensuring an empty list
+		else{
+			// set t.next = top
+			// set top = t
+			
 
+		}
+
+	}
+
+	public int getActiveCount(){
+		return activeCount;
 	}
 
 	
@@ -40,8 +62,8 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		// Assume count is always accurate
+		return count ==0; 
 	}
 
 	@Override
@@ -81,5 +103,14 @@ public class DriverOrganiser implements Organisable<Driver> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return count;
+	}
+
+	
 
 }
