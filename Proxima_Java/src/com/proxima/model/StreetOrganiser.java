@@ -46,16 +46,12 @@ public class StreetOrganiser implements Organisable<Street> {
 	}
 
 	@Override
-	public void insert(Street t) {
+	public void insert(Street t, Street u) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public boolean isEqualTo(Street t) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	@Override
 	public Street getStart() {

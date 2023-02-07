@@ -2,10 +2,10 @@ package com.proxima.model;
 
 public interface Organisable<T> {
 	public void add(T t);
-	public void insert(T t);
-	public void connect(T a, T b);
+	public void insert(T t, T u);// Might be redundant.
+	public void connect(T a, T b);// This may not be used, or is redundant
 	public boolean contains (T t);
-	public boolean isEqualTo(T t);
+	
 	public boolean isEmpty();
 	public T remove(T t);
 	public T getStart();

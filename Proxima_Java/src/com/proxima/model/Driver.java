@@ -15,7 +15,6 @@ public class Driver extends Actor{
 	}
 
 
-	
 	public Driver getNextDriver() 
 	{
 		return nextDriver;
@@ -23,11 +22,10 @@ public class Driver extends Actor{
 	
 	public void setNextDriver(Driver driver) 
 	{
-		
 		nextDriver = driver;
+	
 	}
 	
-
 
 	public int getRating() {
 		return rating;
@@ -51,12 +49,6 @@ public class Driver extends Actor{
 		return "Driver";
 	}
 
-
-	public int compareTo(Driver d)
-	{ //TODO complete Driver.compareTo(Driver d)
-
-		return 0;
-	}
 
 
 }
