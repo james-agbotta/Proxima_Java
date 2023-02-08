@@ -12,12 +12,17 @@ public class DriverOrganiser implements Organisable<Driver> {
 		count = 0;
 
 	}
+	public DriverOrganiser(Driver top){
+		this.top = top;
+		count = 0;
+
+	}
 	
 
 	@Override
 	public void add(Driver t) {
 		// TODO Complete add(Driver t);
-		if(this.isEmpty()&&(top==null)){
+		if(this.isEmpty()){
 			top = t;
 			count++;
 		} // require a robust method for ensuring an empty list
@@ -26,6 +31,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 			// set top = t
 			t.setNextDriver(top);
 			top=t;
+			count++;
 		}
 
 	}
@@ -64,32 +70,39 @@ public class DriverOrganiser implements Organisable<Driver> {
 	{
 		Driver temp = top;
 		top= top.getNextDriver();
+		count--;
 		return temp;
 	}
 
 	@Override
 	public int indexOf(Driver t) {
-	
-		int count =0;
-	Driver current = top;
-	Driver next = current.getNextDriver();
-
-//test current, if true, do nothing, else move to next.
-    while(next!=null){
-		if (!current.equals(t))count++;
-		else{
-		current= next;
-		next = current.getNextDriver();
-		}
-	}
-
+		int count ;
+	DriverOrganiser test = this;
+	count = findIndex(0,t,test);
 		return count;
+	}
+	
+	private int findIndex(int start, Driver query, DriverOrganiser list)
+	{
+		if(list.isEmpty()) 
+		{return -1;}
+		else if(list.getStart().equals(query)) 
+		{
+			return start;
+		}
+		else 
+		{
+			start+=1;
+			return findIndex(start, query, new DriverOrganiser(list.getStart().getNextDriver()));
+		}
+		
+		
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// Assume count is always accurate
-		return count ==0; 
+		return (count ==0) && (top==null); 
 	}
 
 	@Override
@@ -97,7 +110,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 	@Override
@@ -111,18 +123,26 @@ public class DriverOrganiser implements Organisable<Driver> {
 	public Driver getStart() {
 		return top;
 	}
+	
+
 
 	@Override
 	public Driver[] toArray() {
-		// This might not work, hopefully it tests swell
+	if(!this.isEmpty()) {
 		Driver current = top;
-		Driver[] list = new Driver[count];
-		int i=0;
-		while(current!=null&& i<count){
-			list[i]=current;
+		Driver[] drivers = new Driver[this.size()];
+		for(int i=0; i< drivers.length; i++) 
+		{
+			drivers[i] = current;
+		current=current.getNextDriver();
 		}
-		return list;
+		
+		return drivers;
 	}
+	else return null;
+	}
+	
+	
 
 	@Override
 	public Driver[] getPath(Driver t, Driver r) {
