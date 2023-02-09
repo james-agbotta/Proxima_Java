@@ -38,17 +38,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	
 
-	@Override
-	public void connect(Driver a, Driver b) {//Might cause trouble if used.
-		// Connects (and inadvertently truncates a stack) both drivers must be in the stack
-		if(this.contains(a)&&this.contains(b)) 
-		{
-			
-		}
-		
-		
-	}
-
+	
 	@Override
 	public boolean contains(Driver t) {
 		boolean  result = false;
@@ -114,9 +104,32 @@ public class DriverOrganiser implements Organisable<Driver> {
 	@Override
 	public Driver[] getPath(Driver t) {//Path from start to point t
 		// TODO Auto-generated method stub
-		return null;
+		
+		Driver[] path = this.pathFinder(t, this);
+		
+	
+		return path;
+		}
+	
+	private Driver[] pathFinder(Driver t, DriverOrganiser d) 
+	{
+		if(d.isEmpty()) 
+		{return null;}
+		else if(d.getStart().equals(t)) 
+		{
+			return d.toArray();
+		}
+		else 
+		{
+			
+			return pathFinder(t, new DriverOrganiser(d.getStart().getNextDriver()));
+		}
+		
+		
+		
 	}
 
+	
 
 	@Override
 	public void insert(Driver t, Driver u) {// insert u at point t
