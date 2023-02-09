@@ -40,7 +40,12 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public void connect(Driver a, Driver b) {//Might cause trouble if used.
-		// TODO Auto-generated method stub
+		// Connects (and inadvertently truncates a stack) both drivers must be in the stack
+		if(this.contains(a)&&this.contains(b)) 
+		{
+			
+		}
+		
 		
 	}
 
@@ -62,6 +67,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 	@Override
 	public Driver remove(Driver t) {
 		// TODO Auto-generated method stub
+		
 
 		return null;
 	}
@@ -92,7 +98,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 		}
 		else 
 		{
-			start+=1;
+			start++;
 			return findIndex(start, query, new DriverOrganiser(list.getStart().getNextDriver()));
 		}
 		
