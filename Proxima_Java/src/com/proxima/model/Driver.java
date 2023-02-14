@@ -1,4 +1,4 @@
-package com.proxima.model;
+ package com.proxima.model;
 
 public class Driver extends Actor{
 	//This is a stack of drivers

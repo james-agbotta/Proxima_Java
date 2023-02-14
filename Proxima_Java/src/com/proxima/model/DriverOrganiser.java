@@ -57,11 +57,72 @@ public class DriverOrganiser implements Organisable<Driver> {
 	@Override
 	public Driver remove(Driver t) {
 		// TODO Auto-generated method stub
-		
-
-		return null;
+		Driver current = this.top;
+		Driver previous = null;
+		Driver next = current.getNextDriver();
+		int max=0;
+		boolean found = false;
+		if(this.contains(t)) 
+		{
+			while(!found && (max < this.size())) 
+			{
+				if(current.equals(t)) 
+				{
+					if(previous!=null) {//assume not top of stack
+						previous.setNextDriver(next);
+						current.setNextDriver(null);
+					}
+					else {//if this is the top of the stack
+						this.popDriver(); //assuming the t == top pf stack 
+					}
+					found = true;
+ 
+				}else 
+				{
+					previous=current;
+					current=next;
+					next = current.getNextDriver();
+					
+					max++;
+				}
+				
+			}
+		}
+		if (found) return t; 
+		else return null;
 	}
-
+	@Override
+	public void insert(Driver t, Driver u) {// insert u at point t
+		// TODO Auto-generated method stub
+		
+		
+		Driver current = this.top;
+		Driver next = current.getNextDriver();
+		
+		int max =0;
+		boolean found = false;
+		if(this.contains(t)) 
+		{
+			while(!found && (max < this.size())) {
+				if(current.equals(t)) 
+				{
+					u.setNextDriver(next);
+					current.setNextDriver(u);
+					this.count++;
+					found = true;
+				}
+				else {
+					
+					current=next;
+					next = current.getNextDriver();
+					max++;
+				}
+				
+			}
+		}
+		
+	}
+	
 	public Driver popDriver()
 	{
 		Driver temp = top;
@@ -103,39 +164,44 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public Driver[] getPath(Driver t) {//Path from start to point t
-		// TODO Auto-generated method stub
 		
-		Driver[] path = this.pathFinder(t, this);
+		Driver[] path = {};
+		int queryIndex = 0;
+		Driver current = this.getStart();
+		if(this.contains(t)) {
+			queryIndex = this.indexOf(t) ;
+			path = new Driver[queryIndex+1];
 		
+			for(int i = 0; i< path.length; i++) {
+				path[i] = current;
+				current = current.getNextDriver();
+			}
+		}
 	
 		return path;
 		}
-	
-	private Driver[] pathFinder(Driver t, DriverOrganiser d) 
-	{
-		if(d.isEmpty()) 
-		{return null;}
-		else if(d.getStart().equals(t)) 
-		{
-			return d.toArray();
-		}
-		else 
-		{
-			
-			return pathFinder(t, new DriverOrganiser(d.getStart().getNextDriver()));
-		}
-		
-		
-		
-	}
 
-	
 
 	@Override
-	public void insert(Driver t, Driver u) {// insert u at point t
+	public Driver[] getPath(Driver t, Driver r) {
 		// TODO Auto-generated method stub
+		Driver[] path = {};
+		Driver[] fullList = this.toArray();
 		
+		if((this.contains(t))&&(this.contains(r))) {
+			
+		int lesser = (this.indexOf(t) < this.indexOf(r)) ? this.indexOf(t):this.indexOf(r) ;
+		int greater = (this.indexOf(t) > this.indexOf(r)) ? this.indexOf(t):this.indexOf(r) ;
+		path = new Driver[greater-lesser+1];
+		for(int i = 0; i < path.length; i ++) 
+		{
+			path[i]= fullList[i+lesser]; //use lesser as offset
+		}
+		}
+		return path;
 	}
+
+	
 
 
 	@Override
@@ -144,9 +210,9 @@ public class DriverOrganiser implements Organisable<Driver> {
 	}
 	
 
-
 	@Override
 	public Driver[] toArray() {
+		//This is problematic, It seems to clear the array sometimes
 	if(!this.isEmpty()) {
 		Driver current = top;
 		Driver[] drivers = new Driver[this.size()];
@@ -161,15 +227,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 	else return null;
 	}
 	
-	
-
-	@Override
-	public Driver[] getPath(Driver t, Driver r) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	@Override
 	public int size() {
 		// Should work... maybe

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+
 import com.proxima.model.DriverOrganiser;
 import com.proxima.model.Driver;
 
@@ -44,10 +45,21 @@ class DriverOrganiserTest {
 		assertTrue(drOrganise.contains(drivers[3]));
 	}
 
+
 	@Test
 	void testRemove() {
+		
+		drOrganise = new DriverOrganiser();
 
-		fail("Not yet implemented");
+		for (int i = 0; i < drivers.length; i++) {
+			drOrganise.add(drivers[i]);
+		}
+		
+		drOrganise.remove(drivers[2]);
+		//Test if the driver was removed.
+		assertFalse(drOrganise.contains(drivers[2]));
+		//Test if the driver is still there.
+		assertNull(drOrganise.remove(drivers[2])); 
 	}
 
 	@Test
@@ -109,24 +121,39 @@ class DriverOrganiserTest {
 
 	@Test
 	void testGetPathDriver() {
+		
 		drOrganise = new DriverOrganiser();
 		Driver[] droPath;
-		Driver[] driversInverted = {new Driver("driver_3"),new Driver("driver_2"),new Driver("driver_1")};
-		for (int i = 0; i < drivers.length; i++) {
+		Driver[] driversInverted = {drivers[4],drivers[3],drivers[2]};
+		for (int i = 0; i < drivers.length;i++) {
 			
 			drOrganise.add(drivers[i]);
 			
 		}
-		droPath = drOrganise.getPath(driversInverted[0]);
+		droPath = drOrganise.getPath(drivers[2]);
 
-		System.out.print("DO: "+ droPath.length+ ", DI:" + driversInverted.length);
+		
 		assertNotNull(droPath);
+		//System.out.print("DO: "+ droPath.length+ ", DI:" + driversInverted.length);
 		assertArrayEquals(driversInverted,droPath) ;
+	
+		//failed 9-02-23 Bad logic in getPathDriver, fixed 14-02-23
 	}
 
 	@Test
 	void testInsert() {
-		fail("Not yet implemented");
+
+		drOrganise = new DriverOrganiser();
+
+		for (int i = 0; i < drivers.length; i++) {
+			drOrganise.add(drivers[i]);
+		}
+		
+		Driver addition =new Driver("driver_2.5");
+		drOrganise.insert(drivers[1],addition);
+		assertEquals(drivers.length+1, drOrganise.size());
+		assertTrue(drOrganise.contains(addition));
+		//fail("Not yet implemented");
 	}
 
 	@Test
@@ -144,11 +171,32 @@ class DriverOrganiserTest {
 		assertFalse(drOrganise.isEmpty());
 		assertEquals(drivers.length, driversReturned.length);
 		assertArrayEquals(driversInverted, driversReturned);
+		
+		//test again, because... theory
+		driversReturned = drOrganise.toArray();
+		assertFalse(drOrganise.isEmpty());
+		assertEquals(drivers.length, driversReturned.length);
+		assertArrayEquals(driversInverted, driversReturned);
 	}
 
 	@Test
 	void testGetPathDriverDriver() {
-		fail("Not yet implemented");
+		drOrganise = new DriverOrganiser();
+		Driver[] droPath;
+		Driver[] driversInverted = {drivers[3],drivers[2]};
+		for (int i = 0; i < drivers.length;i++) {
+			
+			drOrganise.add(drivers[i]);
+			
+		}
+		droPath = drOrganise.getPath(drivers[3], drivers[2]);
+
+		
+		assertNotNull(droPath);
+		//System.out.print("DO: "+ droPath.length+ ", DI:" + driversInverted.length);
+		assertArrayEquals(driversInverted,droPath) ;
+		
+		//failed 14-02-23 ArrayIndexOutOfBoundsException
 	}
 
 }
