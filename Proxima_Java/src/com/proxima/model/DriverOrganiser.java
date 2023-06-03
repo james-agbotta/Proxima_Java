@@ -21,7 +21,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public void add(Driver t) {
-		// TODO Complete add(Driver t);
 		if(this.isEmpty()){
 			top = t;
 			count++;
@@ -56,7 +55,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public Driver remove(Driver t) {
-		// TODO Auto-generated method stub
 		Driver current = this.top;
 		Driver previous = null;
 		Driver next = current.getNextDriver();
@@ -93,9 +91,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 	}
 	@Override
 	public void insert(Driver t, Driver u) {// insert u at point t
-		// TODO Auto-generated method stub
-		
-		
 		Driver current = this.top;
 		Driver next = current.getNextDriver();
 		
@@ -184,7 +179,6 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	@Override
 	public Driver[] getPath(Driver t, Driver r) {
-		// TODO Auto-generated method stub
 		Driver[] path = {};
 		Driver[] fullList = this.toArray();
 		

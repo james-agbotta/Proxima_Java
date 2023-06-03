@@ -2,16 +2,18 @@ package com.proxima.model;
 
 
 public class Hire extends Actor
-{
-	public Hire(String id) {
-		super(id);
-		// TODO Auto-generated constructor stub
-	}
-
+{	
 	private int phoneNumber;
 	private Driver chosenDriver;
 	private Hire nextHire;
 	
+	public Hire(String id) {
+		super(id);
+		chosenDriver = null;
+		nextHire = null;
+	}
+
+
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -40,7 +42,7 @@ public class Hire extends Actor
 	@Override
 	public String getIdentity()
 	{
-		return "Driver";
+		return "Hire";
 	}
 
 	
