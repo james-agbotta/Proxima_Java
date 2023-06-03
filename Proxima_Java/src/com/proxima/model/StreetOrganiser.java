@@ -2,6 +2,8 @@ package com.proxima.model;
 
 public class StreetOrganiser implements Organisable<Street> {
 	/* THis is a graph data type */
+	//TODO add Search Function
+	//TODO add sort function.
 
 	@Override
 	public void add(Street t) {

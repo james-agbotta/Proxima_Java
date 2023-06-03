@@ -15,6 +15,7 @@ public class Street implements Comparable<Street>{
 	
 	private int streetLength;
 	private Street[] junctions;
+	private double[] lengthsFromJunction;
 	private ArrayList<String> actorsByID;
 	
 	

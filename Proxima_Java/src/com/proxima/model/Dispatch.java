@@ -1,6 +1,7 @@
 package com.proxima.model;
 
 public class Dispatch implements Organisable{
+	//TODO refactor Organisable if not needed.
    private Hire currentHire;
    private Hire frontHire;
    private StreetOrganiser map;
