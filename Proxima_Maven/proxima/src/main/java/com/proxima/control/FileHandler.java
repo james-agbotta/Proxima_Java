@@ -1,6 +1,7 @@
 package com.proxima.control;
 
 import java.io.File;
+import java.util.ArrayList;
 
 //import java.io.*;
 //import java.util.Scanner; //TODO remove if unused. Might not need it.
@@ -24,20 +25,23 @@ import jakarta.xml.bind.Unmarshaller;
 
 
 public class FileHandler {
-    private String driversFilePath;
-    private String hiresFilePath;
-    private String mapFilePath;
+    private static String driversFilePath = "Test_Files/Drivers.xml" ;
+    private static String hiresFilePath = "Test_Files/Hires.xml" ;
+    private static String mapFilePath;
 
     private JAXBContext context;
     private Marshaller marshall;
     private Unmarshaller unmarshall;
-    private DriverOrganiser driverList;
+  
+    private DriverOrganiser driverOrganiser;
+    
+    private ArrayList<Driver> drivers;
 
 
 
 
-
-    public void driverMarshall(DriverOrganiser d)
+//driver O
+    public void driverOrganiserMarshall(DriverOrganiser d)
     {
         context = null;
 
@@ -61,7 +65,24 @@ public class FileHandler {
 
     public void driverUnMarshall()
     {
-        
+        context = null;
+      
+        try {
+    context = JAXBContext.newInstance();
+
+          File file = new File(driversFilePath);
+
+          unmarshall = context.createUnmarshaller();
+
+
+         //DriverOrganiser o = (DriverOrganiser) unmarshall.unmarshal(file);
+
+          //System.out.println(o);
+
+      } catch (JAXBException e) {
+          e.printStackTrace();
+      }
+
     }
 	
 

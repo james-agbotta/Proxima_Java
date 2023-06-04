@@ -1,10 +1,18 @@
 package com.proxima.model;
 
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+//import jakarta.xml.bind.annotation.XmlRootElement;
+
+
 public class Actor implements Comparable<Actor>{
 
+	@XmlElement(name= "phone")
 	private String id;
+	@XmlElement(name= "name")
 	private String name;
-	private Street currentStreet;
+	@XmlElement(name ="street")
+	private String currentStreet;
 	public enum State{DISENGAGED,WAITING,ENGAGED,COMPLETE};
 	private State currentState;
 	
@@ -12,10 +20,11 @@ public class Actor implements Comparable<Actor>{
 	{
 		this.id =id;
 		name ="";
-		currentStreet = new Street("null",0);
+		currentStreet = "";
 		currentState = State.DISENGAGED;
 	}
 	
+	@XmlAttribute
 	public void setID(String id) 
 	{
 		this.id= id;
@@ -35,11 +44,11 @@ public class Actor implements Comparable<Actor>{
 		return name;
 	}
 	
-	public void setCurrentStreet(Street currentStreet) {
+	public void setCurrentStreet(String currentStreet) {
 		this.currentStreet = currentStreet;
 	}
 	
-	public Street getCurrentStreet() 
+	public String getCurrentStreet() 
 	{
 		return currentStreet;
 	}

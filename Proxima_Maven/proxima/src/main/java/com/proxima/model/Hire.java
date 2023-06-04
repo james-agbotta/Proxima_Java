@@ -3,12 +3,35 @@ package com.proxima.model;
 
 public class Hire extends Actor
 {	
-	private int phoneNumber;
+	private int phoneNumPrefix;
+	private int phoneNumSuffix;
+	
+	public int getPhoneNumSuffix() {
+		return phoneNumSuffix;
+	}
+
+
+	public void setPhoneNumSuffix(int phoneNumSuffix) {
+		this.phoneNumSuffix = phoneNumSuffix;
+	}
+
+
+
 	private Driver chosenDriver;
 	private Hire nextHire;
-	private Street destination;
+	private String destination;
 	
 	
+	public String getDestination() {
+		return destination;
+	}
+
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+
 	public Hire(String id) {
 		super(id);
 		chosenDriver = null;
@@ -16,12 +39,13 @@ public class Hire extends Actor
 	}
 
 
-	public int getPhoneNumber() {
-		return phoneNumber;
+
+	public int getPhoneNumPrefix() {
+		return phoneNumPrefix;
 	}
 	
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhoneNumPrefix(int phoneNumber) {
+		this.phoneNumPrefix = phoneNumber;
 	}
 	
 	public Driver getChosenDriver() {
@@ -40,11 +64,18 @@ public class Hire extends Actor
 		this.nextHire = nextHire;
 	}
 	
+	
 
 	@Override
 	public String getIdentity()
 	{
 		return "Hire";
+	}
+
+	@Override
+	public String toString()
+	{
+		return "[id: "+this.getID()+", name "+ this.getName()+", phone number: 0"+phoneNumPrefix+phoneNumSuffix+"]";
 	}
 
 	

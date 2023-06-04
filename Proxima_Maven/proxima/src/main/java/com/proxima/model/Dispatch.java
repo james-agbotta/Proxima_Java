@@ -1,99 +1,180 @@
 package com.proxima.model;
 
-public class Dispatch implements Organisable{
-	//TODO refactor Organisable if not needed.
+public class Dispatch implements Organisable {
+   // TODO refactor Organisable if not needed.
    private Hire currentHire;
    private Hire frontHire;
    private StreetOrganiser map;
-   private DriverOrganiser drivers;
+   // private DriverOrganiser drivers;
+   private Hire[] hiresData;
+
+   // Driver Hard coded
+   // data that shouldn't belong here
+   private Driver[] driversData;
    
-   public Dispatch() 
-   {
-	   currentHire = null;
-	   frontHire = null;
-	   map = new StreetOrganiser();
-	   drivers = new DriverOrganiser();
-	   
-	   
+
+   private DriverOrganiser driverOrganiser ;
+
+   // String[] driversString = new String[drivers.length];
+
+   public Dispatch() {
+      currentHire = null;
+      frontHire = null;
+      map = new StreetOrganiser();
+      // drivers = new DriverOrganiser();
+      initDataSet();
+driverOrganiser = new DriverOrganiser(driversData[0]);
    }
-   
-   public Hire getFrontOfHireList() 
-   {
-	   return frontHire;
+
+   private void initDataSet() {
+      hiresData = new Hire[5];
+      hiresData[0] = new Hire("John892123456");
+      hiresData[0].setName("John");
+      hiresData[0].setCurrentStreet("Sauchiehall Street");
+      hiresData[0].setDestination("Buchanan Street");
+      hiresData[0].setPhoneNumPrefix(7892);
+      hiresData[0].setPhoneNumSuffix(123456);
+
+      hiresData[1] = new Hire("Emily973987654");
+      hiresData[1].setName("Emily");
+      hiresData[1].setCurrentStreet("Argyle Street");
+      hiresData[1].setDestination("Bath Street");
+      hiresData[1].setPhoneNumPrefix(7973);
+      hiresData[1].setPhoneNumSuffix(987654);
+
+      hiresData[2] = new Hire("James781246813");
+      hiresData[2].setName("James");
+      hiresData[2].setCurrentStreet("George Square");
+      hiresData[2].setDestination("Queen Street");
+      hiresData[2].setPhoneNumPrefix(7781);
+      hiresData[2].setPhoneNumSuffix(246813);
+
+      hiresData[3] = new Hire("Sarah55369852");
+      hiresData[3].setName("Sarah");
+      hiresData[3].setCurrentStreet("Clyde Street");
+      hiresData[3].setDestination("Stockwell Street");
+      hiresData[3].setPhoneNumPrefix(7555);
+      hiresData[3].setPhoneNumSuffix(369852);
+
+      hiresData[4] = new Hire("David444135790");
+      hiresData[4].setName("David");
+      hiresData[4].setCurrentStreet("Broomielaw");
+      hiresData[4].setDestination("Custom House Quay");
+      hiresData[4].setPhoneNumPrefix(7444);
+      hiresData[4].setPhoneNumSuffix(135790);
+
+      //Drivers' Data
+      driversData = new Driver[5];
+     //, , ,};
+
+         driversData[0]=new Driver("A1");
+      driversData[0].setName("John Smith");
+      driversData[0].setCurrentStreet("Sauchiehall Street");
+      driversData[0].setRating(4);
+
+      driversData[1]= new Driver("B2");
+      driversData[1].setName("Emily Johnson");
+      driversData[1].setCurrentStreet("Buchanan Street");
+      driversData[1].setRating(3);
+
+      driversData[2]=  new Driver("C3");
+      driversData[2].setName("David Brown");
+      driversData[2].setCurrentStreet("Argyle Street");
+      driversData[2].setRating(5); 
+driversData[3]= new Driver("D4");
+     driversData[3] .setName("Sarah Davis");
+      driversData[3].setCurrentStreet("George Square");
+      driversData[3].setRating(2);
+driversData[4] = new Driver("E5");
+      driversData[4].setName("James Wilson");
+      driversData[4].setCurrentStreet("Clyde Street");
+      driversData[4].setRating(4);
+
+      driverOrganiser.add(driversData[1]);
+      driverOrganiser.add(driversData[2]);
+      driverOrganiser.add(driversData[3]);
+      driverOrganiser.add(driversData[4]);
+
    }
-   
-   
-   
+public Driver[] getDriversData() {
+      return driversData;
+   }
+   public Hire getFrontOfHireList() {
+      return frontHire;
+   }
+
    public Hire getCurrentHire() {
-	   return currentHire;
+      return currentHire;
    }
 
-@Override
-public void add(Object t) {
-	// TODO Auto-generated method stub
-	
-}
+   public Hire[] getHiresData() {
+      return hiresData;
+   }
 
-@Override
-public void insert(Object t, Object u) {
-	// TODO Auto-generated method stub
-	
-}
+   @Override
+   public void add(Object t) {
+      // TODO Auto-generated method stub
 
-@Override
-public boolean contains(Object t) {
-	// TODO Auto-generated method stub
-	return false;
-}
+   }
 
-@Override
-public boolean isEmpty() {
-	// TODO Auto-generated method stub
-	return false;
-}
+   @Override
+   public void insert(Object t, Object u) {
+      // TODO Auto-generated method stub
 
-@Override
-public Object remove(Object t) {
-	// TODO Auto-generated method stub
-	return null;
-}
+   }
 
-@Override
-public Object getStart() {
-	// TODO Auto-generated method stub
-	return null;
-}
+   @Override
+   public boolean contains(Object t) {
+      // TODO Auto-generated method stub
+      return false;
+   }
 
-@Override
-public int indexOf(Object t) {
-	// TODO Auto-generated method stub
-	return 0;
-}
+   @Override
+   public boolean isEmpty() {
+      // TODO Auto-generated method stub
+      return false;
+   }
 
-@Override
-public int size() {
-	// TODO Auto-generated method stub
-	return 0;
-}
+   @Override
+   public Object remove(Object t) {
+      // TODO Auto-generated method stub
+      return null;
+   }
 
-@Override
-public Object[] toArray() {
-	// TODO Auto-generated method stub
-	return null;
-}
+   @Override
+   public Object getStart() {
+      // TODO Auto-generated method stub
+      return null;
+   }
 
-@Override
-public Object[] getPath(Object t) {
-	// TODO Auto-generated method stub
-	return null;
-}
+   @Override
+   public int indexOf(Object t) {
+      // TODO Auto-generated method stub
+      return 0;
+   }
 
-@Override
-public Object[] getPath(Object t, Object r) {
-	// TODO Auto-generated method stub
-	return null;
-}
-   
-   
+   @Override
+   public int size() {
+      // TODO Auto-generated method stub
+      return 0;
+   }
+
+   @Override
+   public Object[] toArray() {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   @Override
+   public Object[] getPath(Object t) {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   @Override
+   public Object[] getPath(Object t, Object r) {
+      // TODO Auto-generated method stub
+      return null;
+   }
 
 }

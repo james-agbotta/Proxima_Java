@@ -1,9 +1,12 @@
  package com.proxima.model;
 
-public class Driver extends Actor{
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+  public class Driver extends Actor{
 	//This is a stack of drivers
 	
-
+	
 	private Driver nextDriver;
 	private int rating; // Rating from 1 - 5
 	
@@ -39,7 +42,7 @@ public class Driver extends Actor{
 	@Override
 	public String toString()
 	{
-		return "Driver id: "+this.getID()+". Currently located: "+this.getCurrentStreet().getStreetName();
+		return "Driver id: "+this.getID()+". Currently located: "+this.getCurrentStreet();
 	}
 
 

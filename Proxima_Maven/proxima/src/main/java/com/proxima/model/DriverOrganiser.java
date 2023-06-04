@@ -1,23 +1,35 @@
 package com.proxima.model;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+//import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
+import java.util.ArrayList;
+@XmlRootElement(name = "taxiDrivers")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DriverOrganiser implements Organisable<Driver> {
 	/*This is a linked list based stack datatype */
 
 	private Driver top;
+	@XmlElement(name = "driver")
+	private ArrayList<Driver> driverList; // I hope I don't need this.
 	private int count;// count of drivers in stack.
 
 
 	public DriverOrganiser(){
 		top = null;
 		count = 0;
+		driverList = new ArrayList<Driver>();
+
 
 	}
+
 	public DriverOrganiser(Driver top){
 		this.top = top;
 		count = 0;
+		driverList = new ArrayList<Driver>();
+		driverList.add(top);
 
 	}
 	
@@ -27,6 +39,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 		if(this.isEmpty()){
 			top = t;
 			count++;
+			driverList.add(top);
 		} // require a robust method for ensuring an empty list
 		else{
 			// set t.next = top
@@ -34,6 +47,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 			t.setNextDriver(top);
 			top=t;
 			count++;
+			driverList.add(t);
 		}
 
 	}
@@ -228,6 +242,11 @@ public class DriverOrganiser implements Organisable<Driver> {
 	public int size() {
 		// Should work... maybe
 		return count;
+	}
+
+	@Override
+	public String toString(){
+		return "Number of Drivers: "+count;
 	}
 
 	
