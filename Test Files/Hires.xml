@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user>
+    <name>John</name>
+    <phone>07892 123456</phone>
+    <currentLocation>Sauchiehall Street</currentLocation>
+    <destination>Buchanan Street</destination>
+  </user>
+  <user>
+    <name>Emily</name>
+    <phone>07973 987654</phone>
+    <currentLocation>Argyle Street</currentLocation>
+    <destination>Bath Street</destination>
+  </user>
+  <user>
+    <name>James</name>
+    <phone>07781 246813</phone>
+    <currentLocation>George Square</currentLocation>
+    <destination>Queen Street</destination>
+  </user>
+  <user>
+    <name>Sarah</name>
+    <phone>07555 369852</phone>
+    <currentLocation>Clyde Street</currentLocation>
+    <destination>Stockwell Street</destination>
+  </user>
+  <user>
+    <name>David</name>
+    <phone>07444 135790</phone>
+    <currentLocation>Broomielaw</currentLocation>
+    <destination>Custom House Quay</destination>
+  </user>
+</users>
