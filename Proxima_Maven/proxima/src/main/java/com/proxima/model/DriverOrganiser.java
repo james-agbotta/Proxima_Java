@@ -1,4 +1,8 @@
 package com.proxima.model;
+
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class DriverOrganiser implements Organisable<Driver> {
 	/*This is a linked list based stack datatype */
 

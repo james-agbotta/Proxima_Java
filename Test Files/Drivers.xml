@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taxiDrivers>
+  <driver>
+    <id>A1</id>
+    <name>John Smith</name>
+    <street>Sauchiehall Street</street>
+    <rating>4</rating>
+  </driver>
+  <driver>
+    <id>B2</id>
+    <name>Emily Johnson</name>
+    <street>Buchanan Street</street>
+    <rating>3</rating>
+  </driver>
+  <driver>
+    <id>C3</id>
+    <name>David Brown</name>
+    <street>Argyle Street</street>
+    <rating>5</rating>
+  </driver>
+  <driver>
+    <id>D4</id>
+    <name>Sarah Davis</name>
+    <street>George Square</street>
+    <rating>2</rating>
+  </driver>
+  <driver>
+    <id>E5</id>
+    <name>James Wilson</name>
+    <street>Clyde Street</street>
+    <rating>4</rating>
+  </driver>
+</taxiDrivers>
