@@ -13,7 +13,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 	}
 	public DriverOrganiser(Driver top){
 		this.top = top;
-		count = 0;
+		count = 1;
 
 	}
 	

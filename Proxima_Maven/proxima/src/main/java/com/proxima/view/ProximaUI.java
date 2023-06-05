@@ -68,7 +68,7 @@ public class ProximaUI extends javax.swing.JFrame {
         // });
       
         // hires
-        //TODO: fix This with Dispatch Object
+        
         DefaultListModel<String> model = new DefaultListModel<>();
         Hire[] hire = dispatch.getHiresData();
        
@@ -81,17 +81,27 @@ public class ProximaUI extends javax.swing.JFrame {
         hireListScrollPane.setViewportView(hireJList);
 
         driverJList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        driverJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //driverJList.setModel(new javax.swing.AbstractListModel<String>() {
+        //    String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
 
-            public int getSize() {
-                return strings.length;
-            }
+       //     public int getSize() {
+       //         return strings.length;
+       //     }
 
-            public String getElementAt(int i) {
-                return strings[i];
-            }
-        });
+        //    public String getElementAt(int i) {
+       //         return strings[i];
+        //    }
+        //});
+
+        //TODO: fix This with Dispatch Object
+       model = new DefaultListModel<>();
+       Driver[] drive = dispatch.getDriverOrganiser().toArray();
+
+        for(int i = 0; i < drive.length; i++){
+            model.addElement(drive[i].toString());
+        }
+        driverJList.setModel(model);
+        
         driverListScrollPane.setViewportView(driverJList);
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/proxima/view/Bundle"); // NOI18N
@@ -208,6 +218,7 @@ public class ProximaUI extends javax.swing.JFrame {
                                         .addComponent(detailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap(33, Short.MAX_VALUE)));
+        this.setTitle("Proxima - The Taxi App");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,6 +302,8 @@ public class ProximaUI extends javax.swing.JFrame {
 
     //Variables pertaining to Proxima
     private Dispatch dispatch;
+    private Driver selectedDriver;
+    private Hire selectedHire;
 
 
 }

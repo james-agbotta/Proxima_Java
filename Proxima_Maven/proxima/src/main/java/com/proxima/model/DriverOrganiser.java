@@ -27,10 +27,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	public DriverOrganiser(Driver top){
 		this.top = top;
-		count = 0;
-		driverList = new ArrayList<Driver>();
-		driverList.add(top);
-
+		count = 1;
 	}
 	
 
@@ -39,7 +36,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 		if(this.isEmpty()){
 			top = t;
 			count++;
-			driverList.add(top);
+			//driverList.add(top);
 		} // require a robust method for ensuring an empty list
 		else{
 			// set t.next = top
@@ -47,7 +44,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 			t.setNextDriver(top);
 			top=t;
 			count++;
-			driverList.add(t);
+			//driverList.add(t);
 		}
 
 	}

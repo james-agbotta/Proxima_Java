@@ -15,6 +15,14 @@ class DriverOrganiserTest {
 	private DriverOrganiser drOrganise;
 	Driver[] drivers = {new Driver("driver_1"),new Driver("driver_2"),new Driver("driver_3"),new Driver("driver_4"),new Driver("driver_5")};
 
+@Test
+void testDriverOrganiser(){
+	Driver testDriver = new Driver("Test");
+	drOrganise = new DriverOrganiser(testDriver);
+	System.out.print(drOrganise.getStart().toString());
+	assertEquals(drOrganise.getStart(),testDriver);
+}
+
 	@Test
 	void testAdd() {
 		Driver testDriver = new Driver("Test");
@@ -167,6 +175,33 @@ class DriverOrganiserTest {
 
 		for (int i = 0; i < drivers.length; i++) {
 			drOrganise.add(drivers[i]);
+			driversInverted[drivers.length - (i + 1)] = drivers[i];
+		}
+		driversReturned = drOrganise.toArray();
+		assertFalse(drOrganise.isEmpty());
+		assertEquals(drivers.length, driversReturned.length);
+		assertArrayEquals(driversInverted, driversReturned);
+		
+		//test again, because... theory
+		driversReturned = drOrganise.toArray();
+		assertFalse(drOrganise.isEmpty());
+		assertEquals(drivers.length, driversReturned.length);
+		assertArrayEquals(driversInverted, driversReturned);
+	}
+
+	@Test
+	void testToArrayAlt() {
+
+		Driver[] driversReturned;
+		Driver[] driversInverted = new Driver[5];
+		drOrganise = new DriverOrganiser(drivers[0]);
+
+		for(int i =1; i< drivers.length; i++){
+			drOrganise.add(drivers[i]);
+		}
+
+		for (int i = 0; i < drivers.length; i++) {
+			
 			driversInverted[drivers.length - (i + 1)] = drivers[i];
 		}
 		driversReturned = drOrganise.toArray();

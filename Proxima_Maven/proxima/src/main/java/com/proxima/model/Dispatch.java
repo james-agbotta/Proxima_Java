@@ -1,6 +1,6 @@
 package com.proxima.model;
 
-public class Dispatch implements Organisable {
+public class Dispatch {
    // TODO refactor Organisable if not needed.
    private Hire currentHire;
    private Hire frontHire;
@@ -11,11 +11,18 @@ public class Dispatch implements Organisable {
    // Driver Hard coded
    // data that shouldn't belong here
    private Driver[] driversData;
-   
 
-   private DriverOrganiser driverOrganiser ;
+   private DriverOrganiser driverOrganiser;
 
    // String[] driversString = new String[drivers.length];
+
+   public DriverOrganiser getDriverOrganiser() {
+      return driverOrganiser;
+   }
+
+   public void setDriverOrganiser(DriverOrganiser driverOrganiser) {
+      this.driverOrganiser = driverOrganiser;
+   }
 
    public Dispatch() {
       currentHire = null;
@@ -23,7 +30,7 @@ public class Dispatch implements Organisable {
       map = new StreetOrganiser();
       // drivers = new DriverOrganiser();
       initDataSet();
-driverOrganiser = new DriverOrganiser(driversData[0]);
+     
    }
 
    private void initDataSet() {
@@ -63,32 +70,33 @@ driverOrganiser = new DriverOrganiser(driversData[0]);
       hiresData[4].setPhoneNumPrefix(7444);
       hiresData[4].setPhoneNumSuffix(135790);
 
-      //Drivers' Data
+      // Drivers' Data
       driversData = new Driver[5];
-     //, , ,};
 
-         driversData[0]=new Driver("A1");
+      driversData[0] = new Driver("A1");
       driversData[0].setName("John Smith");
       driversData[0].setCurrentStreet("Sauchiehall Street");
       driversData[0].setRating(4);
 
-      driversData[1]= new Driver("B2");
+      driversData[1] = new Driver("B2");
       driversData[1].setName("Emily Johnson");
       driversData[1].setCurrentStreet("Buchanan Street");
       driversData[1].setRating(3);
 
-      driversData[2]=  new Driver("C3");
+      driversData[2] = new Driver("C3");
       driversData[2].setName("David Brown");
       driversData[2].setCurrentStreet("Argyle Street");
-      driversData[2].setRating(5); 
-driversData[3]= new Driver("D4");
-     driversData[3] .setName("Sarah Davis");
+      driversData[2].setRating(5);
+      driversData[3] = new Driver("D4");
+      driversData[3].setName("Sarah Davis");
       driversData[3].setCurrentStreet("George Square");
       driversData[3].setRating(2);
-driversData[4] = new Driver("E5");
+      driversData[4] = new Driver("E5");
       driversData[4].setName("James Wilson");
       driversData[4].setCurrentStreet("Clyde Street");
       driversData[4].setRating(4);
+
+      driverOrganiser = new DriverOrganiser(driversData[0]);
 
       driverOrganiser.add(driversData[1]);
       driverOrganiser.add(driversData[2]);
@@ -96,9 +104,11 @@ driversData[4] = new Driver("E5");
       driverOrganiser.add(driversData[4]);
 
    }
-public Driver[] getDriversData() {
+
+   public Driver[] getDriversData() {
       return driversData;
    }
+
    public Hire getFrontOfHireList() {
       return frontHire;
    }
@@ -111,70 +121,5 @@ public Driver[] getDriversData() {
       return hiresData;
    }
 
-   @Override
-   public void add(Object t) {
-      // TODO Auto-generated method stub
-
-   }
-
-   @Override
-   public void insert(Object t, Object u) {
-      // TODO Auto-generated method stub
-
-   }
-
-   @Override
-   public boolean contains(Object t) {
-      // TODO Auto-generated method stub
-      return false;
-   }
-
-   @Override
-   public boolean isEmpty() {
-      // TODO Auto-generated method stub
-      return false;
-   }
-
-   @Override
-   public Object remove(Object t) {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
-   @Override
-   public Object getStart() {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
-   @Override
-   public int indexOf(Object t) {
-      // TODO Auto-generated method stub
-      return 0;
-   }
-
-   @Override
-   public int size() {
-      // TODO Auto-generated method stub
-      return 0;
-   }
-
-   @Override
-   public Object[] toArray() {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
-   @Override
-   public Object[] getPath(Object t) {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
-   @Override
-   public Object[] getPath(Object t, Object r) {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
+   
 }
