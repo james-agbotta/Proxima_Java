@@ -7,8 +7,7 @@ package com.proxima.view;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
-
-
+import com.proxima.control.EventsController;
 import com.proxima.model.*;
 
 /**
@@ -101,7 +100,7 @@ public class ProximaUI extends javax.swing.JFrame {
             model.addElement(drive[i].toString());
         }
         driverJList.setModel(model);
-        
+
         driverListScrollPane.setViewportView(driverJList);
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/proxima/view/Bundle"); // NOI18N
@@ -304,6 +303,7 @@ public class ProximaUI extends javax.swing.JFrame {
     private Dispatch dispatch;
     private Driver selectedDriver;
     private Hire selectedHire;
+    private EventsController events;
 
 
 }

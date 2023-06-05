@@ -8,7 +8,8 @@ public class Street implements Comparable<Street>{
 	/*
 	 * Things to test. 
 	 * 1. Have a means to log the position of junction in a list
-	 * 2. means to rank junctions. 
+	 * 2. means to rank neighbours
+	. 
 	 * 3. pre-emptive representation of graph system (either vertices or matrix. )
 	 * 
 	 */
@@ -22,18 +23,17 @@ public class Street implements Comparable<Street>{
 	private String postCode;
 	
 	private int streetLength;
-	private Street[] junctions;
-	
-	private ArrayList<String> actorsByID;
+	private ArrayList<StreetEdge> neighbours;
 	
 	
 	/*procedures*/
-	public Street(String name, int junction) 
+	public Street(String name, String postCode, int length) 
 	{
 		streetName = name;
-		postCode ="";
-		junctions = new Street[junction];
-		actorsByID= new ArrayList<String>();
+		this.postCode =postCode;
+		streetLength = length;
+	  
+		
 
 	}
 	
@@ -55,7 +55,16 @@ public class Street implements Comparable<Street>{
 		return postCode;
 	}
 	
+	public ArrayList<StreetEdge> getNeighbours() {
+		return neighbours;
+	}
 
+	public void setNeighbours(ArrayList<StreetEdge> neighbours) {
+		this.neighbours = neighbours;
+	}
+
+	
+	
 
 	public int getStreetLength() {
 		return streetLength;
@@ -65,26 +74,10 @@ public class Street implements Comparable<Street>{
 		this.streetLength = streetLength;
 	}
 
-	public String[] getActorsByID()
-	{
-		String[] temp = new String[actorsByID.size()];
-		temp = actorsByID.toArray(temp);
-
-		return temp;
-	}
 	
-	public void addJunction() 
+	public void addNeighbour() 
 	{//TODO complete this by adding error checking and  balancing.
-		
-		
-		int i =0;
-		boolean complete = false;
-		
-		 
-		do{
-			//if()
-			i++;
-		}while (complete || i < junctions.length);
+			
 	}
 	
 	

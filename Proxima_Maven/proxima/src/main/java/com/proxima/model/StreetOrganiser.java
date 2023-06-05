@@ -1,13 +1,26 @@
 package com.proxima.model;
 
+import java.util.ArrayList;
+
 public class StreetOrganiser implements Organisable<Street> {
 	/* THis is a graph data type */
 	//TODO add Search Function
 	//TODO add sort function.
 
+	private ArrayList<Street> streetList;
+
+
+	public StreetOrganiser()
+	{
+		
+		streetList = new ArrayList<Street>();
+	}
+
+
+
 	@Override
 	public void add(Street t) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
