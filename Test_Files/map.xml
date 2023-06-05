@@ -2,89 +2,144 @@
 <streets>
   <street>
     <name>Sauchiehall Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Buchanan Street</neighboringStreet>
-      <neighboringStreet>Argyle Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.5 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Buchanan Street</name>
+        <length>0.5 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Argyle Street</name>
+        <length>0.4 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G2 3ER</postcode>
   </street>
   <street>
     <name>Buchanan Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Sauchiehall Street</neighboringStreet>
-      <neighboringStreet>Argyle Street</neighboringStreet>
-      <neighboringStreet>George Square</neighboringStreet>
-    </neighboringStreets>
-    <length>0.5 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Sauchiehall Street</name>
+        <length>0.5 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Argyle Street</name>
+        <length>0.3 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>George Square</name>
+        <length>0.2 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 2FF</postcode>
   </street>
   <street>
     <name>Argyle Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Sauchiehall Street</neighboringStreet>
-      <neighboringStreet>Buchanan Street</neighboringStreet>
-      <neighboringStreet>Bath Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.3 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Sauchiehall Street</name>
+        <length>0.4 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Buchanan Street</name>
+        <length>0.3 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Bath Street</name>
+        <length>0.6 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G2 8BJ</postcode>
   </street>
   <street>
     <name>Bath Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Argyle Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.3 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Argyle Street</name>
+        <length>0.6 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>George Square</name>
+        <length>0.4 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G2 4JH</postcode>
   </street>
   <street>
     <name>George Square</name>
-    <neighboringStreets>
-      <neighboringStreet>Buchanan Street</neighboringStreet>
-      <neighboringStreet>Queen Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.2 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Buchanan Street</name>
+        <length>0.2 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Bath Street</name>
+        <length>0.4 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Queen Street</name>
+        <length>0.3 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G2 1DU</postcode>
   </street>
   <street>
     <name>Queen Street</name>
-    <neighboringStreets>
-      <neighboringStreet>George Square</neighboringStreet>
-    </neighboringStreets>
-    <length>0.2 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>George Square</name>
+        <length>0.3 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 3AH</postcode>
   </street>
   <street>
     <name>Clyde Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Stockwell Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.4 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Stockwell Street</name>
+        <length>0.4 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 4LH</postcode>
   </street>
   <street>
     <name>Stockwell Street</name>
-    <neighboringStreets>
-      <neighboringStreet>Clyde Street</neighboringStreet>
-    </neighboringStreets>
-    <length>0.4 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Clyde
+
+ Street</name>
+        <length>0.4 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Broomielaw</name>
+        <length>0.5 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 4RJ</postcode>
   </street>
   <street>
     <name>Broomielaw</name>
-    <neighboringStreets>
-      <neighboringStreet>Custom House Quay
-		  </neighboringStreet>
-    </neighboringStreets>
-    <length>0.6 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Stockwell Street</name>
+        <length>0.5 miles</length>
+      </neighbor>
+      <neighbor>
+        <name>Custom House Quay</name>
+        <length>0.3 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 4RQ</postcode>
   </street>
   <street>
     <name>Custom House Quay</name>
-    <neighboringStreets>
-      <neighboringStreet>Broomielaw</neighboringStreet>
-    </neighboringStreets>
-    <length>0.6 miles</length>
+    <neighbors>
+      <neighbor>
+        <name>Broomielaw</name>
+        <length>0.3 miles</length>
+      </neighbor>
+    </neighbors>
     <postcode>G1 4RZ</postcode>
   </street>
 </streets>

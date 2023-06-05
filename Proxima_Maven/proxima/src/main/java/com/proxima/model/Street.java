@@ -22,17 +22,16 @@ public class Street implements Comparable<Street>{
 	private String streetName;
 	private String postCode;
 	
-	private int streetLength;
-	private ArrayList<StreetEdge> neighbours;
+	private double streetLength;
+
 	
 	
 	/*procedures*/
-	public Street(String name, String postCode, int length) 
+	public Street(String name, String postCode) 
 	{
 		streetName = name;
 		this.postCode =postCode;
-		streetLength = length;
-	  
+		streetLength = 0;// used in calculating distance in search algorithm
 		
 
 	}
@@ -55,30 +54,18 @@ public class Street implements Comparable<Street>{
 		return postCode;
 	}
 	
-	public ArrayList<StreetEdge> getNeighbours() {
-		return neighbours;
-	}
-
-	public void setNeighbours(ArrayList<StreetEdge> neighbours) {
-		this.neighbours = neighbours;
-	}
-
-	
 	
 
-	public int getStreetLength() {
+	public double getStreetLength() {
 		return streetLength;
 	}
 
-	public void setStreetLength(int streetLength) {
+	public void setStreetLength(double streetLength) {
 		this.streetLength = streetLength;
 	}
 
 	
-	public void addNeighbour() 
-	{//TODO complete this by adding error checking and  balancing.
-			
-	}
+	
 	
 	
 	public boolean isValid() {

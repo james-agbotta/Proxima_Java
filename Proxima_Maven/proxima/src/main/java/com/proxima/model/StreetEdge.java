@@ -1,10 +1,14 @@
 package com.proxima.model;
 
 public class StreetEdge {
+  
+    
+
     private Street neighbour;
     private double distance;
 
     public StreetEdge(Street neighbour, double distance) {
+
         this.neighbour = neighbour;
         this.distance = distance;
     }
@@ -24,5 +28,5 @@ public class StreetEdge {
     public void setDistance(double distance) {
         this.distance = distance;
     }
-
+    
 }
