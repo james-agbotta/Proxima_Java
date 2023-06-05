@@ -5,12 +5,15 @@ import java.util.Arrays;
 import java.util.Collections;
 //import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.lang.IndexOutOfBoundsException;
 
 public class StreetOrganiser implements Organisable<Street> {
 	/* THis is a graph data type */
 	// TODO add Search Function
 	// TODO add sort function.
 
+	private static final Exception IndexOutOfBoundsException = null;
 	private ArrayList<Street> streetList;
 	private ArrayList<ArrayList<StreetEdge>> neighbourList;
 
@@ -76,7 +79,9 @@ public class StreetOrganiser implements Organisable<Street> {
 			if(streetname.equals(streetList.get(i).getStreetName()))
 			{
 				found = i;
+				System.out.println(i+": "+ streetname+" : "+ streetList.get(i).toString());
 			}
+			
 		}
 
 		return found;

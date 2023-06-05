@@ -14,6 +14,7 @@
     </neighbors>
     <postcode>G2 3ER</postcode>
   </street>
+
   <street>
     <name>Buchanan Street</name>
     <neighbors>
@@ -32,6 +33,7 @@
     </neighbors>
     <postcode>G1 2FF</postcode>
   </street>
+
   <street>
     <name>Argyle Street</name>
     <neighbors>
@@ -50,6 +52,7 @@
     </neighbors>
     <postcode>G2 8BJ</postcode>
   </street>
+
   <street>
     <name>Bath Street</name>
     <neighbors>
@@ -64,6 +67,7 @@
     </neighbors>
     <postcode>G2 4JH</postcode>
   </street>
+
   <street>
     <name>George Square</name>
     <neighbors>
@@ -82,6 +86,7 @@
     </neighbors>
     <postcode>G2 1DU</postcode>
   </street>
+
   <street>
     <name>Queen Street</name>
     <neighbors>
@@ -92,6 +97,7 @@
     </neighbors>
     <postcode>G1 3AH</postcode>
   </street>
+
   <street>
     <name>Clyde Street</name>
     <neighbors>
@@ -102,13 +108,12 @@
     </neighbors>
     <postcode>G1 4LH</postcode>
   </street>
+
   <street>
     <name>Stockwell Street</name>
     <neighbors>
       <neighbor>
-        <name>Clyde
-
- Street</name>
+        <name>ClydeStreet</name>
         <length>0.4 miles</length>
       </neighbor>
       <neighbor>
@@ -118,6 +123,7 @@
     </neighbors>
     <postcode>G1 4RJ</postcode>
   </street>
+
   <street>
     <name>Broomielaw</name>
     <neighbors>
@@ -132,6 +138,7 @@
     </neighbors>
     <postcode>G1 4RQ</postcode>
   </street>
+
   <street>
     <name>Custom House Quay</name>
     <neighbors>

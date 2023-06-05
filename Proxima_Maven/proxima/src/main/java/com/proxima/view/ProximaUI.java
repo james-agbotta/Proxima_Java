@@ -7,6 +7,7 @@ package com.proxima.view;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
+import com.proxima.control.DriverAssignButtonListener;
 import com.proxima.control.EventsController;
 import com.proxima.model.*;
 
@@ -52,6 +53,7 @@ public class ProximaUI extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +93,10 @@ public class ProximaUI extends javax.swing.JFrame {
        //         return strings[i];
         //    }
         //});
+        driverAssignButtonListener = new DriverAssignButtonListener(detailsTextArea, dispatch, hireJList);
+hireJList.addListSelectionListener(driverAssignButtonListener);
+
+
 
         //TODO: fix This with Dispatch Object
        model = new DefaultListModel<>();
@@ -109,6 +115,7 @@ public class ProximaUI extends javax.swing.JFrame {
         driverLabel.setText(bundle.getString("proximaUI.driverLabel.text")); // NOI18N
 
         assignDriverButton.setText(bundle.getString("proximaUI.assignDriverButton.text")); // NOI18N
+assignDriverButton.addActionListener(driverAssignButtonListener);
 
         javax.swing.GroupLayout actorListPanelLayout = new javax.swing.GroupLayout(actorListPanel);
         actorListPanel.setLayout(actorListPanelLayout);
@@ -301,9 +308,8 @@ public class ProximaUI extends javax.swing.JFrame {
 
     //Variables pertaining to Proxima
     private Dispatch dispatch;
-    private Driver selectedDriver;
-    private Hire selectedHire;
-    private EventsController events;
+    private  DriverAssignButtonListener driverAssignButtonListener;
+
 
 
 }

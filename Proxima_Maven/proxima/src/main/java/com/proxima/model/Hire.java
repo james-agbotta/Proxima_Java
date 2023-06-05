@@ -34,7 +34,7 @@ public class Hire extends Actor
 
 	public Hire(String id) {
 		super(id);
-		chosenDriver = null;
+		chosenDriver = new Driver("00");
 		nextHire = null;
 	}
 
@@ -48,6 +48,11 @@ public class Hire extends Actor
 		this.phoneNumPrefix = phoneNumber;
 	}
 	
+
+	public String getPhoneNumber()
+	{
+		return "0"+phoneNumPrefix+phoneNumSuffix;
+	}
 	public Driver getChosenDriver() {
 		return chosenDriver;
 	}

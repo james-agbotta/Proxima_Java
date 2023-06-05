@@ -5,6 +5,7 @@ public class Dispatch {
    private Hire currentHire;
    private Hire frontHire;
    private StreetOrganiser map;
+   
    // private DriverOrganiser drivers;
    private Hire[] hiresData;
 
@@ -112,7 +113,7 @@ public class Dispatch {
       map.add(new Street("Queen Street", "G1 3AH" ));//5
       map.add(new Street("Clyde Street", "G1 4LH" ));//6
       map.add(new Street("Stockwell Street", "G1 4RJ" ));//7
-      map.add(new Street("Bromielaw", "G1 4RQ" ));//8
+      map.add(new Street("Broomielaw", "G1 4RQ" ));//8
       map.add(new Street("Custom House", "G1 4RZ" ));//9
 
       map.addNeighbour(map.getStart(), map.getStreet(1), 0.5);
@@ -168,6 +169,15 @@ public class Dispatch {
 
    public Hire[] getHiresData() {
       return hiresData;
+   }
+
+
+   public StreetOrganiser getMap() {
+      return map;
+   }
+
+   public void setMap(StreetOrganiser map) {
+      this.map = map;
    }
 
    
