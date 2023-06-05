@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -24,6 +25,7 @@ public class DriverAssignButtonListener implements ActionListener, ListSelection
     private Street[] driverStreets;
     private  Driver[] drivers;
     private StreetOrganiser map;
+    private ArrayList<Street> finalPath;
 
     public DriverAssignButtonListener(JTextArea text, Dispatch d, JList<String> hires) {
         textBox = text;
@@ -68,10 +70,8 @@ public class DriverAssignButtonListener implements ActionListener, ListSelection
  
         driverStreets = new Street[drivers.length];
         for(int i =0; i < drivers.length; i++)
-        {
-            
+        {   
             driverStreets[i] = map.getStreet(map.findIndex(drivers[i].getCurrentStreet()));
-        System.out.println(i+" done");
         }
 
 
@@ -79,16 +79,47 @@ public class DriverAssignButtonListener implements ActionListener, ListSelection
 
     public Driver nearestDriver(Street query)
     {
+
         Driver foundDriver = drivers[0];
 
-
-        ArrayList<Street[]> paths = new ArrayList<Street[]>();
-        for(Street street: driverStreets)
+try{
+        ArrayList<ArrayList<Street>> paths = new ArrayList<ArrayList<Street>>();
+        for(int i =0 ; i < driverStreets.length; i++)
         {
-            paths.add(map.getPath(query,street ));
+            
+            paths.add(map.getPath(query,driverStreets[i]));
+            //System.out.println(i+" path value: "+ paths.get(i).length);
+
+            
 
         }
+
+        //System.out.println("DABL:Paths populated");
+       
         
+        for(int i =1; i < paths.size(); i++)
+        {
+          
+            
+            if(paths.get(i).size()>paths.get(i-1).size())
+            {
+                System.out.println(i);
+                finalPath= paths.get(i);
+                foundDriver= drivers[i];
+                
+            }
+
+
+        }
+
+    }catch(Exception e)
+    {      
+        //new JOptionPane("Paths not found"+ e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        
+    System.out.println("Error" );
+    e.printStackTrace();
+
+    }
  
         return foundDriver;
     }
@@ -100,13 +131,14 @@ public class DriverAssignButtonListener implements ActionListener, ListSelection
         populateDriverStreets();
         currentIndex = hireList.getSelectedIndex();
         Hire currentHire = dispatch.getHiresData()[currentIndex];
-        int pickupStreetIndex= dispatch.getMap().findIndex(currentHire.getCurrentStreet());
-        Street pickStreet =dispatch.getMap().getStreet(pickupStreetIndex);
-        System.out.println("\n\npickStreet "+ pickStreet.toString());
+        int pickupStreetIndex= map.findIndex(currentHire.getCurrentStreet());
+        Street pickStreet =map.getStreet(pickupStreetIndex);
+        System.out.println(pickStreet.getClass()+"\n"+pickStreet.toString() );
         dispatch.getHiresData()[currentIndex].setChosenDriver(nearestDriver(pickStreet));
-
-textBox.setText("" + currentHire.getName() + ",  \nPhoneNumber: " + currentHire.getPhoneNumber()
-                + "\nCurrent Location: " + currentHire.getCurrentStreet()+"\nChosen Driver: "+currentHire.getChosenDriver().toString());
+        String pathToTake="";
+        
+        textBox.setText("" + currentHire.getName() + ",  \nPhoneNumber: " + currentHire.getPhoneNumber()
+        + "\nCurrent Location: " + currentHire.getCurrentStreet()+"\nChosen Driver: "+currentHire.getChosenDriver().toString() );
         
 
     }
@@ -116,8 +148,9 @@ textBox.setText("" + currentHire.getName() + ",  \nPhoneNumber: " + currentHire.
         // currentIndex= listEvent.getLastIndex();//TODO fix
         currentIndex = hireList.getSelectedIndex();
         Hire currentHire = dispatch.getHiresData()[currentIndex];
+        
         textBox.setText("" + currentHire.getName() + ",  \nPhoneNumber: " + currentHire.getPhoneNumber()
-                + "\nCurrent Location: " + currentHire.getCurrentStreet()+"\nChosen Driver: "+currentHire.getChosenDriver().toString());
+                + "\nCurrent Location: " + currentHire.getCurrentStreet()+"\nChosen Driver: "+currentHire.getChosenDriver().toString() );
     }
 
 }

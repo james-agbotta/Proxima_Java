@@ -8,7 +8,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
 import com.proxima.control.DriverAssignButtonListener;
-import com.proxima.control.EventsController;
+
 import com.proxima.model.*;
 
 /**

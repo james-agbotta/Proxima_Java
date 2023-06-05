@@ -22,7 +22,7 @@ public class Street implements Comparable<Street>{
 	private String streetName;
 	private String postCode;
 	
-	private double streetLength;
+	private int streetLength;
 
 	
 	
@@ -56,11 +56,11 @@ public class Street implements Comparable<Street>{
 	
 	
 
-	public double getStreetLength() {
+	public int getStreetLength() {
 		return streetLength;
 	}
 
-	public void setStreetLength(double streetLength) {
+	public void setStreetLength(int streetLength) {
 		this.streetLength = streetLength;
 	}
 

@@ -67,8 +67,8 @@ public class Dispatch {
 
       hiresData[4] = new Hire("David444135790");
       hiresData[4].setName("David");
-      hiresData[4].setCurrentStreet("Broomielaw");
-      hiresData[4].setDestination("Custom House Quay");
+      hiresData[4].setCurrentStreet("Custom House Quay");
+      hiresData[4].setDestination("Broomielaw");
       hiresData[4].setPhoneNumPrefix(7444);
       hiresData[4].setPhoneNumSuffix(135790);
 
@@ -95,7 +95,7 @@ public class Dispatch {
       driversData[3].setRating(2);
       driversData[4] = new Driver("E5");
       driversData[4].setName("James Wilson");
-      driversData[4].setCurrentStreet("Clyde Street");
+      driversData[4].setCurrentStreet("Broomielaw");
       driversData[4].setRating(4);
 
       driverOrganiser = new DriverOrganiser(driversData[0]);
@@ -116,38 +116,38 @@ public class Dispatch {
       map.add(new Street("Broomielaw", "G1 4RQ" ));//8
       map.add(new Street("Custom House", "G1 4RZ" ));//9
 
-      map.addNeighbour(map.getStart(), map.getStreet(1), 0.5);
-      map.addNeighbour(map.getStart(), map.getStreet(3), 0.4);
-      map.addNeighbour(map.getStreet(1), map.getStreet(0), 0.5);
-      map.addNeighbour(map.getStreet(1), map.getStreet(2), 0.3);
-      map.addNeighbour(map.getStreet(1), map.getStreet(4), 0.2);
+      map.addNeighbour(map.getStart(), map.getStreet(1), 5);
+      map.addNeighbour(map.getStart(), map.getStreet(3), 4);
+      map.addNeighbour(map.getStreet(1), map.getStreet(0), 5);
+      map.addNeighbour(map.getStreet(1), map.getStreet(2), 3);
+      map.addNeighbour(map.getStreet(1), map.getStreet(4), 2);
 
-      map.addNeighbour(map.getStreet(2), map.getStreet(0), 0.4);
-      map.addNeighbour(map.getStreet(2), map.getStreet(1), 0.4);
-      map.addNeighbour(map.getStreet(2), map.getStreet(3), 0.6);
+      map.addNeighbour(map.getStreet(2), map.getStreet(0), 4);
 
-      map.addNeighbour(map.getStreet(3), map.getStreet(2), 0.6);
-      map.addNeighbour(map.getStreet(3), map.getStreet(4), 0.4);
+      map.addNeighbour(map.getStreet(2), map.getStreet(3), 6);
 
-      map.addNeighbour(map.getStreet(4), map.getStreet(1), 0.2);
-      map.addNeighbour(map.getStreet(4), map.getStreet(3), 0.4);
-      map.addNeighbour(map.getStreet(4), map.getStreet(5), 0.3);
+      map.addNeighbour(map.getStreet(3), map.getStreet(2), 6);
+      map.addNeighbour(map.getStreet(3), map.getStreet(4), 4);
 
-      map.addNeighbour(map.getStreet(5), map.getStreet(4), 0.3); 
-      map.addNeighbour(map.getStreet(5), map.getStreet(1), 0.8);    
+      map.addNeighbour(map.getStreet(4), map.getStreet(1), 2);
+      map.addNeighbour(map.getStreet(4), map.getStreet(3), 4);
+      map.addNeighbour(map.getStreet(4), map.getStreet(5), 3);
+
+      map.addNeighbour(map.getStreet(5), map.getStreet(4), 3); 
+      map.addNeighbour(map.getStreet(5), map.getStreet(1), 8);    
      
-      map.addNeighbour(map.getStreet(6), map.getStreet(7), 0.4);
-      map.addNeighbour(map.getStreet(6), map.getStreet(0), 1.3);
+      map.addNeighbour(map.getStreet(6), map.getStreet(7), 4);
+    
 
-      map.addNeighbour(map.getStreet(7), map.getStreet(6), 0.4);
-      map.addNeighbour(map.getStreet(7), map.getStreet(8), 0.5);
+      map.addNeighbour(map.getStreet(7), map.getStreet(6), 4);
+      map.addNeighbour(map.getStreet(7), map.getStreet(8), 5);
 
-      map.addNeighbour(map.getStreet(8), map.getStreet(7), 0.4);
-      map.addNeighbour(map.getStreet(8), map.getStreet(9), 0.3);
-      map.addNeighbour(map.getStreet(8), map.getStreet(5), 0.7);
+      map.addNeighbour(map.getStreet(8), map.getStreet(7), 4);
+      map.addNeighbour(map.getStreet(8), map.getStreet(9), 3);
+      map.addNeighbour(map.getStreet(8), map.getStreet(5), 7);
 
-      map.addNeighbour(map.getStreet(9), map.getStreet(8), 0.3);
-      map.addNeighbour(map.getStreet(9), map.getStreet(6), 0.5);
+      map.addNeighbour(map.getStreet(9), map.getStreet(8), 3);
+      map.addNeighbour(map.getStreet(9), map.getStreet(6), 5);
 
 
 

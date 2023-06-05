@@ -3,19 +3,20 @@ package com.proxima.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 //import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 import java.lang.IndexOutOfBoundsException;
 
-public class StreetOrganiser implements Organisable<Street> {
+public class StreetOrganiser  {
 	/* THis is a graph data type */
 	// TODO add Search Function
 	// TODO add sort function.
 
 	private static final Exception IndexOutOfBoundsException = null;
-	private ArrayList<Street> streetList;
-	private ArrayList<ArrayList<StreetEdge>> neighbourList;
+	private List<Street> streetList;
+	private List<ArrayList<StreetEdge>> neighbourList;
 
 	public StreetOrganiser() {
 
@@ -23,7 +24,7 @@ public class StreetOrganiser implements Organisable<Street> {
 		neighbourList = new ArrayList<ArrayList<StreetEdge>>();
 	}
 
-	@Override
+	
 	public void add(Street t) {
 
 		streetList.add(t);
@@ -42,7 +43,7 @@ public class StreetOrganiser implements Organisable<Street> {
 			return new ArrayList<>(); // empty list
 	}
 
-	public void addNeighbour(Street origin, Street destination, double distance) {
+	public void addNeighbour(Street origin, Street destination, int distance) {
 		int originIndex = streetList.indexOf(origin);
 		int destinationIndex = streetList.indexOf(destination);
 		if (originIndex != -1 && destinationIndex != -1) {
@@ -52,7 +53,7 @@ public class StreetOrganiser implements Organisable<Street> {
 
 	}
 
-	@Override
+
 	public boolean contains(Street t) {
 
 		return streetList.contains(t);
@@ -79,7 +80,7 @@ public class StreetOrganiser implements Organisable<Street> {
 			if(streetname.equals(streetList.get(i).getStreetName()))
 			{
 				found = i;
-				System.out.println(i+": "+ streetname+" : "+ streetList.get(i).toString());
+
 			}
 			
 		}
@@ -87,31 +88,30 @@ public class StreetOrganiser implements Organisable<Street> {
 		return found;
 	}
 
-	@Override
 	public Street remove(Street t) {
 		streetList.remove(t);
 		return t;
 
 	}
 
-	@Override
+
 	public int indexOf(Street t) {
 
 		return streetList.indexOf(t);
 	}
 
-	@Override
+
 	public boolean isEmpty() {
 		return streetList.isEmpty();
 	}
 
-	@Override
-	public Street[] getPath(Street t) {
+
+	public ArrayList<Street> getPath(Street t) {
 
 		return getPath(streetList.get(0), t);
 	}
 
-	@Override
+
 	public void insert(Street t, Street u) {
 		if (streetList.contains(t))
 			streetList.add(streetList.indexOf(t), u);
@@ -122,13 +122,12 @@ public class StreetOrganiser implements Organisable<Street> {
 
 	}
 
-	@Override
+
 	public Street getStart() {
 
 		return streetList.get(0);
 	}
 
-	@Override
 	public Street[] toArray() {
 		Street[] streets = streetList.toArray(new Street[streetList.size()]);
 
@@ -137,12 +136,13 @@ public class StreetOrganiser implements Organisable<Street> {
 
 
 	//IMplementtation of Djikstra's Algorithm with a priority Queue implementation
-	@Override
-	public Street[] getPath(Street t, Street r) {
 
-		Street[] path = null;
-		ArrayList<Street> tempPath;
-		// TODO Auto-generated method stub
+	public ArrayList<Street> getPath(Street t, Street r) {
+
+		//if(t==null)System.out.println("T is Null");
+
+	
+
 		int streetCount = streetList.size();
 		int[] distances = new int[streetCount];
 		int[] previous = new int[streetCount];
@@ -153,42 +153,50 @@ public class StreetOrganiser implements Organisable<Street> {
 		int endStreet = indexOf(r);
 
 		if (startStreet == -1 || endStreet == -1) {
-			return path;
+			return new ArrayList<Street>();
 		}
 		distances[startStreet] = 0;
 
-		PriorityQueue<Street> priorityQueue = new PriorityQueue<Street>();
+		PriorityQueue<Street> priorityQueue = new PriorityQueue<>();
 		streetList.get(startStreet).setStreetLength(0);
 		priorityQueue.add(streetList.get(startStreet));
 
+		System.out.println(""+t.toString()+" -> "+ r.toString());
+
 		while (!priorityQueue.isEmpty()) {
-			Street temp = priorityQueue.poll();
-			int currentStreet = streetList.indexOf(temp);
-			if (startStreet == endStreet) {
-				tempPath = new ArrayList<Street>();
+			
+
+			int currentStreet = streetList.indexOf(priorityQueue.poll());
+			if (currentStreet == endStreet ){
+				ArrayList<Street> path = new ArrayList<Street>();
 				int index = endStreet;
 				while (index != -1) {
-					tempPath.add(streetList.get(index));
+					path.add(streetList.get(index));
 					index = previous[index];
 
 				}
-				Collections.reverse(tempPath);
-				path = tempPath.toArray(new Street[tempPath.size()]);
-				return path;
+
+				
+				Collections.reverse(path);
+				
+			
+				return  path;
 
 			}
+			
 
 			ArrayList<StreetEdge> neighbours = neighbourList.get(currentStreet);
 			for (StreetEdge neighbour : neighbours) {
 				int next = streetList.indexOf(neighbour.getNeighbour());
-				double distance = neighbour.getDistance();
-				double distanceElapsed = distances[currentStreet] + distance;
+				int distance = neighbour.getDistance();
+				int distanceElapsed = distances[currentStreet] + distance;
 
 				if (distanceElapsed < distances[next]) {
-					distances[next] = next;
+					distances[next] = distanceElapsed;
 					previous[next] = currentStreet;
 					streetList.get(currentStreet).setStreetLength(distanceElapsed);
 					priorityQueue.add(streetList.get(currentStreet));
+
 
 				}
 
@@ -196,10 +204,10 @@ public class StreetOrganiser implements Organisable<Street> {
 
 		}
 
-		return path;
+		return new ArrayList<Street>();
 	}
 
-	@Override
+
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;

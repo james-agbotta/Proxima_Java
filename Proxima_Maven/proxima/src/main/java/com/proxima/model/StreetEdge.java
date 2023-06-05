@@ -5,9 +5,9 @@ public class StreetEdge {
     
 
     private Street neighbour;
-    private double distance;
+    private int distance;
 
-    public StreetEdge(Street neighbour, double distance) {
+    public StreetEdge(Street neighbour, int distance) {
 
         this.neighbour = neighbour;
         this.distance = distance;
@@ -21,11 +21,11 @@ public class StreetEdge {
         this.neighbour = neighbour;
     }
 
-    public double getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
     
