@@ -113,33 +113,32 @@ public class Dispatch {
 
       map.add(new Street("Renfield Street", "G2 1LP"));// 5
       map.add(new Street("Jamaica Street", "G1 4QD"));// 6
-      map.add(new Street("Buchanan Street", "G2 1DU"));// 7
-      map.add(new Street("West George Street", "G2 1DU"));// 8
-      map.add(new Street("St. Vincent Street", "G2 5TF"));// 9
+      map.add(new Street("West George Street", "G2 1DU"));// 7
+      map.add(new Street("St. Vincent Street", "G2 5TF"));// 8
 
-      map.add(new Street("Trongate", "G1 5ES"));// 10
-      map.add(new Street("Mitchell Street", "G1 3NU"));// 11
-      map.add(new Street("Stockwell Street", "G1 4LW"));// 12
-      map.add(new Street("Albion Street", "G1 1RQ"));// 13
-      map.add(new Street("Blackfriars Street", "G1 1PE"));// 14
+      map.add(new Street("Trongate", "G1 5ES"));// 9
+      map.add(new Street("Mitchell Street", "G1 3NU"));// 10
+      map.add(new Street("Stockwell Street", "G1 4LW"));// 11
+      map.add(new Street("Albion Street", "G1 1RQ"));// 12
+      map.add(new Street("Blackfriars Street", "G1 1PE"));// 13
 
-      map.add(new Street("Candleriggs", "G1 1NP"));// 15
-      map.add(new Street("High Street", "G1 1NL"));// 16
-      map.add(new Street("Saltmarket", "G1 5NA"));// 17
-      map.add(new Street("Clyde Street", "G1 4HT"));// 18
-      map.add(new Street("Bell Street", "G4 0TQ"));// 19
+      map.add(new Street("Candleriggs", "G1 1NP"));// 14
+      map.add(new Street("High Street", "G1 1NL"));// 15
+      map.add(new Street("Saltmarket", "G1 5NA"));// 16
+      map.add(new Street("Clyde Street", "G1 4HT"));// 17
+      map.add(new Street("Bell Street", "G4 0TQ"));// 18
 
-      map.add(new Street("Bath Street", "G2 4HG"));// 20
-      map.add(new Street("West Nile Street", "G1 2RL"));// 21
-      map.add(new Street("Broomielaw", "G1 4PA"));// 22
-      map.add(new Street("Queen Street", "G1 3DX"));// 23
-      map.add(new Street("Glassford Street", "G1 1UL"));// 24
+      map.add(new Street("Bath Street", "G2 4HG"));// 19
+      map.add(new Street("West Nile Street", "G1 2RL"));// 20
+      map.add(new Street("Broomielaw", "G1 4PA"));// 21
+      map.add(new Street("Queen Street", "G1 3DX"));// 22
+      map.add(new Street("Glassford Street", "G1 1UL"));// 23
 
-      map.add(new Street("Hope Street", "G2 2TU"));// 25
-      map.add(new Street("London Road ", "G1 5NB"));// 26
-      map.add(new Street("Brunswick Street", "G1 1TF,"));// 27
-      map.add(new Street("Wilson Street", "G1 1SS"));// 28
-      map.add(new Street("Bridgegate", "G1 5HZ"));// 29
+      map.add(new Street("Hope Street", "G2 2TU"));// 24
+      map.add(new Street("London Road ", "G1 5NB"));// 25
+      map.add(new Street("Brunswick Street", "G1 1TF,"));// 26
+      map.add(new Street("Wilson Street", "G1 1SS"));// 27
+      map.add(new Street("Bridgegate", "G1 5HZ"));// 28
 
       // Add neighbours (note the distance is set to 1/10th of a mile)
 
