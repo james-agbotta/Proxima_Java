@@ -84,8 +84,7 @@ public class Street implements Comparable<Street>{
 	@Override
 	public int compareTo(Street o) {
 		// First test if the street-names are the same, then the post-codes
-		int temp =  this.streetName.compareTo(o.getStreetName());
-		if (temp ==0) temp += this.postCode.compareTo(o.getPostCode());
+		int temp = this.toString().compareTo(o.toString());
 		return temp;
 	}
 	

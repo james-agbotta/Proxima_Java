@@ -72,6 +72,19 @@ public class StreetOrganiser  {
 		return found;
 	}
 
+
+	public boolean find(Street street)
+	{
+		boolean found = false;
+		for(Street s : streetList)
+		{
+			if(street.equals(s)) found = true;
+
+		}
+
+		return found;
+	}
+
 	public int findIndex(String streetname)
 	{
 		int found = -1;
@@ -87,6 +100,23 @@ public class StreetOrganiser  {
 
 		return found;
 	}
+
+public int findIndex(Street street)
+	{
+		int found = -1;
+		for(int i =0; i < streetList.size(); i++ )
+		{
+			if(street.equals(streetList.get(i)))
+			{
+				found = i;
+
+			}
+			
+		}
+
+		return found;
+	}
+
 
 	public Street remove(Street t) {
 		streetList.remove(t);
@@ -138,10 +168,6 @@ public class StreetOrganiser  {
 	//IMplementtation of Djikstra's Algorithm with a priority Queue implementation
 
 	public ArrayList<Street> getPath(Street t, Street r) {
-
-		//if(t==null)System.out.println("T is Null");
-
-	
 
 		int streetCount = streetList.size();
 		int[] distances = new int[streetCount];
@@ -209,8 +235,7 @@ public class StreetOrganiser  {
 
 
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return streetList.size();
 	}
 
 }

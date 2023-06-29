@@ -131,7 +131,8 @@ try{
         populateDriverStreets();
         currentIndex = hireList.getSelectedIndex();
         Hire currentHire = dispatch.getHiresData()[currentIndex];
-        int pickupStreetIndex= map.findIndex(currentHire.getCurrentStreet());
+        int pickupStreetIndex= map.findIndex(currentHire.getCurrentStreet());// Dunno why this works... Assume JList object index is odd// nevermind. it broke something else.
+
         Street pickStreet =map.getStreet(pickupStreetIndex);
         System.out.println(pickStreet.getClass()+"\n"+pickStreet.toString() );
         dispatch.getHiresData()[currentIndex].setChosenDriver(nearestDriver(pickStreet));
