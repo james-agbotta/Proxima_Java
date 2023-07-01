@@ -23,7 +23,7 @@ public class ProximaUI extends javax.swing.JFrame {
     public ProximaUI() {
         dispatch = new Dispatch();
         initComponents();
-        
+
     }
 
     /**
@@ -53,7 +53,6 @@ public class ProximaUI extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
-        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,48 +60,37 @@ public class ProximaUI extends javax.swing.JFrame {
 
         hireJList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        // hireJList.setModel(new javax.swing.AbstractListModel<String>() {
-        // String[] strings =driversString;//{ "Item 1", "Item 2", "Item 3", "Item 4",
-        // "Item 5" };
-        // public int getSize() { return strings.length; }
-        // public String getElementAt(int i) { return strings[i]; }
-        // });
-      
-        // hires
-        
         DefaultListModel<String> model = new DefaultListModel<>();
         Hire[] hire = dispatch.getHiresData();
-       
-        for(int i = 0; i < hire.length; i++){
+
+        for (int i = 0; i < hire.length; i++) {
             model.addElement(hire[i].toString());
         }
-        
+
         hireJList.setModel(model);
 
         hireListScrollPane.setViewportView(hireJList);
 
         driverJList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        //driverJList.setModel(new javax.swing.AbstractListModel<String>() {
-        //    String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        // driverJList.setModel(new javax.swing.AbstractListModel<String>() {
+        // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
 
-       //     public int getSize() {
-       //         return strings.length;
-       //     }
+        // public int getSize() {
+        // return strings.length;
+        // }
 
-        //    public String getElementAt(int i) {
-       //         return strings[i];
-        //    }
-        //});
+        // public String getElementAt(int i) {
+        // return strings[i];
+        // }
+        // });
         driverAssignButtonListener = new DriverAssignButtonListener(detailsTextArea, dispatch, hireJList);
-hireJList.addListSelectionListener(driverAssignButtonListener);
+        hireJList.addListSelectionListener(driverAssignButtonListener);
 
+        // TODO: fix This with Dispatch Object
+        model = new DefaultListModel<>();
+        Driver[] drive = dispatch.getDriverOrganiser().toArray();
 
-
-        //TODO: fix This with Dispatch Object
-       model = new DefaultListModel<>();
-       Driver[] drive = dispatch.getDriverOrganiser().toArray();
-
-        for(int i = 0; i < drive.length; i++){
+        for (int i = 0; i < drive.length; i++) {
             model.addElement(drive[i].toString());
         }
         driverJList.setModel(model);
@@ -115,7 +103,7 @@ hireJList.addListSelectionListener(driverAssignButtonListener);
         driverLabel.setText(bundle.getString("proximaUI.driverLabel.text")); // NOI18N
 
         assignDriverButton.setText(bundle.getString("proximaUI.assignDriverButton.text")); // NOI18N
-assignDriverButton.addActionListener(driverAssignButtonListener);
+        assignDriverButton.addActionListener(driverAssignButtonListener);
 
         javax.swing.GroupLayout actorListPanelLayout = new javax.swing.GroupLayout(actorListPanel);
         actorListPanel.setLayout(actorListPanelLayout);
@@ -276,10 +264,7 @@ assignDriverButton.addActionListener(driverAssignButtonListener);
             }
         });
 
-        
-
         // hires
-        
 
         // map of streets
         StreetOrganiser map;
@@ -306,10 +291,8 @@ assignDriverButton.addActionListener(driverAssignButtonListener);
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
-    //Variables pertaining to Proxima
+    // Variables pertaining to Proxima
     private Dispatch dispatch;
-    private  DriverAssignButtonListener driverAssignButtonListener;
-
-
+    private DriverAssignButtonListener driverAssignButtonListener;
 
 }

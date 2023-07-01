@@ -169,9 +169,12 @@ public int findIndex(Street street)
 
 	public ArrayList<Street> getPath(Street t, Street r) {
 
-		int streetCount = streetList.size();
+		int streetCount = streetList.size(); //total nodes
 		int[] distances = new int[streetCount];
 		int[] previous = new int[streetCount];
+		int tally = 0;
+		PriorityQueue<Street> priorityQueue = new PriorityQueue<Street>();
+
 		Arrays.fill(distances, Integer.MAX_VALUE);
 		Arrays.fill(previous, -1);
 
@@ -183,7 +186,7 @@ public int findIndex(Street street)
 		}
 		distances[startStreet] = 0;
 
-		PriorityQueue<Street> priorityQueue = new PriorityQueue<>();
+		
 		streetList.get(startStreet).setStreetLength(0);
 		priorityQueue.add(streetList.get(startStreet));
 
@@ -199,6 +202,7 @@ public int findIndex(Street street)
 				while (index != -1) {
 					path.add(streetList.get(index));
 					index = previous[index];
+
 
 				}
 

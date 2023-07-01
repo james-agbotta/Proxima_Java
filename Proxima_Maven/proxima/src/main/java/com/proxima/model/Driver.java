@@ -9,13 +9,18 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 	
 	private Driver nextDriver;
 	private int rating; // Rating from 1 - 5
+
 	
+
+
 	public Driver(String id) {
 		super(id);
 		rating= 3;// This is the average 
 		nextDriver = null;
+		this.setCurrentState(Actor.State.WAITING);
 		
 	}
+
 
 
 	public Driver getNextDriver() 
@@ -27,6 +32,16 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 	{
 		nextDriver = driver;
 	
+	}
+
+	public void engage()
+	{
+		this.setCurrentState(Actor.State.ENGAGED);
+	}
+
+	public void disengage()
+	{
+		this.setCurrentState(Actor.State.DISENGAGED);
 	}
 	
 
@@ -42,7 +57,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 	@Override
 	public String toString()
 	{
-		return "Driver id: "+this.getID()+". Currently located: "+this.getCurrentStreet();
+		return "Driver id: "+this.getID()+". Currently located: "+this.getCurrentStreet()+ " Currently: "+this.getState();
 	}
 
 

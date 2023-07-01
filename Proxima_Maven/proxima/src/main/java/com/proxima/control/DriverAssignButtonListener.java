@@ -26,13 +26,15 @@ public class DriverAssignButtonListener implements ActionListener, ListSelection
     private  Driver[] drivers;
     private StreetOrganiser map;
     private ArrayList<Street> finalPath;
-
+    
     public DriverAssignButtonListener(JTextArea text, Dispatch d, JList<String> hires) {
         textBox = text;
         dispatch = d;
         hireList = hires;
         currentIndex = 0;
-        drivers = dispatch.getDriverOrganiser().toArray();
+        drivers = new Driver[dispatch.getWaitingDrivers().size()];
+        //drivers = dispatch.getDriverOrganiser().toArray();
+        drivers = dispatch.getWaitingDrivers().toArray(drivers);
         map = dispatch.getMap();
         driverStreets = new Street[map.size()];
 
@@ -89,13 +91,9 @@ try{
             
             paths.add(map.getPath(query,driverStreets[i]));
             //System.out.println(i+" path value: "+ paths.get(i).length);
-
-            
-
         }
 
-        //System.out.println("DABL:Paths populated");
-       
+        //System.out.println("DABL:Paths populated")
         
         for(int i =1; i < paths.size(); i++)
         {
@@ -107,6 +105,7 @@ try{
                 finalPath= paths.get(i);
                 foundDriver= drivers[i];
                 
+                
             }
 
 
@@ -114,10 +113,10 @@ try{
 
     }catch(Exception e)
     {      
-        //new JOptionPane("Paths not found"+ e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        
-    System.out.println("Error" );
-    e.printStackTrace();
+       
+        JOptionPane.showMessageDialog(null,"An unanticipated error has occured\n"+ e.getMessage());    
+   // System.out.println("Error" );
+   // e.printStackTrace();
 
     }
  
@@ -126,21 +125,34 @@ try{
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        // TODO Auto-generated method stub
 
-        populateDriverStreets();
+try{
+ populateDriverStreets();
         currentIndex = hireList.getSelectedIndex();
+        Driver chosenDriver = new Driver("NONE");
         Hire currentHire = dispatch.getHiresData()[currentIndex];
         int pickupStreetIndex= map.findIndex(currentHire.getCurrentStreet());// Dunno why this works... Assume JList object index is odd// nevermind. it broke something else.
 
         Street pickStreet =map.getStreet(pickupStreetIndex);
         System.out.println(pickStreet.getClass()+"\n"+pickStreet.toString() );
-        dispatch.getHiresData()[currentIndex].setChosenDriver(nearestDriver(pickStreet));
+        chosenDriver =nearestDriver(pickStreet);
+        dispatch.getWaitingDrivers().remove(chosenDriver);
+        chosenDriver.engage();
+        dispatch.getDriverOrganiser().remove(chosenDriver);
+        dispatch.getDriverOrganiser().add(chosenDriver);
+        dispatch.getHiresData()[currentIndex].setChosenDriver(chosenDriver);
         String pathToTake="";
         
         textBox.setText("" + currentHire.getName() + ",  \nPhoneNumber: " + currentHire.getPhoneNumber()
         + "\nCurrent Location: " + currentHire.getCurrentStreet()+"\nChosen Driver: "+currentHire.getChosenDriver().toString() );
         
+}
+       catch(ArrayIndexOutOfBoundsException e)
+       {
+//messages.showMessageDialog(this, "No Hire Selected, \n");
+    JOptionPane.showMessageDialog(null,"No Hire Selected, \nPlease Select a hire before assigning a driver ");
+    //e.printStackTrace();
+       }
 
     }
 

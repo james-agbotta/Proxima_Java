@@ -13,14 +13,14 @@ public class DriverOrganiser implements Organisable<Driver> {
 
 	private Driver top;
 	@XmlElement(name = "driver")
-	private ArrayList<Driver> driverList; // I hope I don't need this.
+	//private ArrayList<Driver> driverList; // I hope I don't need this.
 	private int count;// count of drivers in stack.
 
 
 	public DriverOrganiser(){
 		top = null;
 		count = 0;
-		driverList = new ArrayList<Driver>();
+	//	driverList = new ArrayList<Driver>();
 
 
 	}
@@ -36,7 +36,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 		if(this.isEmpty()){
 			top = t;
 			count++;
-			//driverList.add(top);
+		//	driverList.add(top);
 		} // require a robust method for ensuring an empty list
 		else{
 			// set t.next = top
@@ -44,7 +44,7 @@ public class DriverOrganiser implements Organisable<Driver> {
 			t.setNextDriver(top);
 			top=t;
 			count++;
-			//driverList.add(t);
+		//	driverList.add(t);
 		}
 
 	}
