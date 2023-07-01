@@ -21,16 +21,25 @@ public class Dispatch {
 
    // String[] driversString = new String[drivers.length];
 
+   /**
+    * @return
+    */
    public DriverOrganiser getDriverOrganiser() {
       return driverOrganiser;
    }
 
 
 
+   /**
+    * @param driverOrganiser
+    */
    public void setDriverOrganiser(DriverOrganiser driverOrganiser) {
       this.driverOrganiser = driverOrganiser;
    }
 
+   /**
+    * 
+    */
    public Dispatch() {
       currentHire = null;
       frontHire = null;
@@ -42,10 +51,16 @@ public class Dispatch {
    }
 
 
+   /**
+    * @return
+    */
    public ArrayList<Driver> getWaitingDrivers() {
       return waitingDrivers;
    }
 
+   /**
+    * 
+    */
    private void initDataSet() {
       hiresData = new Hire[5];
       hiresData[0] = new Hire("John892123456");
@@ -333,11 +348,13 @@ public class Dispatch {
 
    public void checkWaiting()
    {
-      Driver currentSelection;
+      Driver currentHireSelection;
+      Driver currentDriver;
       for(int i =0; i < hiresData.length; i++){
-         currentSelection = hiresData[i].getChosenDriver();
-         if(currentSelection != null)
+         currentHireSelection = hiresData[i].getChosenDriver();
+         if( driverOrganiser.contains(currentHireSelection))
          {
+            if(currentHireSelection.getState()==Actor.State.ENGAGED) waitingDrivers.remove(currentHireSelection);
 
          }
       }
