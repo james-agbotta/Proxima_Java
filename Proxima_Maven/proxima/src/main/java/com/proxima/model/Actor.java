@@ -5,7 +5,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 //import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Class Actor
  * 
+ * Class created for general Inheritance
  */
 public class Actor implements Comparable<Actor> {
 
@@ -31,7 +33,9 @@ public class Actor implements Comparable<Actor> {
 
 
 	/**
+	 * Set ID
 	 * 
+	 * Sets the ID field for the class
 	 * @param id
 	 */
 	@XmlAttribute
@@ -39,14 +43,20 @@ public class Actor implements Comparable<Actor> {
 		this.id = id;
 	}
 /**
+ * getId()
+ * Returns class ID 
  * 
- * @return
+ * @return id
  */
 	public String getID() {
 		return id;
 	}
 
 	/**
+	 * setName()
+	 * 
+	 * Sets the Actors name variable
+	 * 
 	 * @param name
 	 */
 	public void setName(String name) {
@@ -54,13 +64,21 @@ public class Actor implements Comparable<Actor> {
 	}
 
 	/**
-	 * @return
+	 * getName()
+	 * 
+	 * returns the Actors name variable
+	 * 
+	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
+	 * setCurrent Street
+	 * 
+	 * Assigns the current street where the actor is located.
+	 * 
 	 * @param currentStreet
 	 */
 	public void setCurrentStreet(String currentStreet) {
@@ -68,13 +86,19 @@ public class Actor implements Comparable<Actor> {
 	}
 
 	/**
-	 * @return
+	 * 
+	 * Retrieves the current street the actor is located.
+	 * 
+	 * @return currentStreet
 	 */
 	public String getCurrentStreet() {
 		return currentStreet;
 	}
 
 	/**
+	 * setCurrentState
+	 * Assigns the current State of the Actor, from Enum set {DISENGAGED, WAITING, ENGAGED, COMPLETE}
+	 * 
 	 * @param state
 	 */
 	public void setCurrentState(State state) {
@@ -85,7 +109,12 @@ public class Actor implements Comparable<Actor> {
 		return currentState;
 	}
 
-	/* */
+	/* 
+	 * compareTo()
+	 * 
+	 * Overides Comparable.compareTo 
+	 * Compares Actors based on their ID and Name 
+	*/
 	@Override
 	public int compareTo(Actor o) {
 		// First test if the id's are the same, then check the names.
